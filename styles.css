@@ -1,0 +1,51 @@
+a,a:hover
+{
+    color: black;
+    text-decoration: none;
+}
+.list-group
+{
+    margin: 5px;
+    min-width: 250px;
+    max-width: 250px;
+    float:left;
+}
+.card
+{
+    max-width: 75%;
+    margin: 5px;
+    
+}
+.card-body
+{
+    opacity: 0.8;
+    border: 1px solid black;
+}
+.list-group-item:hover
+{
+    opacity: 0.8;
+}
+.osszesitett
+{ 
+    display:inline-block;
+    padding:0px 3px 0px 3px;
+    border-radius:5px;
+}
+#latta{background-color: coral;}
+#valaszok{background-color: yellow;}
+#ertekeles{background-color: lightgreen;}
+#felhasznalo{background-color: orange;}
+#datum{background-color: lightgray;}
+@media screen and (max-width: 580px)
+{
+    .list-group
+    {
+        max-width: 10%;
+        float: none;
+    }
+    .card
+    {
+        max-width: 10%;
+        float: none;
+    }
+}
