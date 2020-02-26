@@ -1,6 +1,5 @@
 <?php
 
-    
     require_once "iranyito/funkciok.php";
     require_once "iranyito/kontrollerek.php";
     require_once "iranyito/konfiguracio.php"; //alap beállítások helye
