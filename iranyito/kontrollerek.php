@@ -12,6 +12,7 @@
  *
  * @return void
  */
+
 function notFoundController() {
     return [
         '404',
@@ -39,70 +40,50 @@ function homeController() {
      *   $pageSize = $_GET["size"] ??  10;
      * ami lényegesen tömörebb...
      */
-    //$size = $_GET["size"] ?? 10;    // $size: lapozási oldalméret
-    //$page = $_GET["page"] ?? 1;     // $page: oldalszám
- 
+    $size = $_GET["size"] ?? 10;    // $size: lapozási oldalméret
+    $page = $_GET["page"] ?? 1;     // $page: oldalszám
     // $connection: Adatbázis kapcsolat
-    
     $connection = getConnection();
- 
     // $total: a képek számának meghatározása
-    //$total = getTotal($connection);
- 
+    $total = Osszes($connection);
     // $offset: eltolás kiszámítása
-    //$offset = ($page - 1) * $size;
-    $offset = 20;
-    $size = 5;
+    $offset = ($page - 1) * $size;
      //$content: egy oldalnyi kép
-    $content = FooldalKerdesek($connection);
-
-    //$lastPage = $total % $size == 0 ? intdiv($total, $size) : intdiv($total, $size) + 1;
+    $content =  FooldalKerdesek($connection, $size, $offset);
+    
+    $lastPage = $total % $size == 0 ? intdiv($total, $size) : intdiv($total, $size) + 1;
+    
     //----------------------------------------------------------------------------------------
  
     return [
         'fooldal',
         [
-            'title' => 'Home page'/*,
+            //Ezel azok, mármint szerintem, amit POST fügvénnyel átadok a gecibe
+            'title' => 'Home page',
             'content' => $content,
             'total' => $total,
             'size' => $size,
             'page' => $page,
-            'lastPage' => $lastPage*/
+            'lastPage' => $lastPage
         ]
     ];
 }
-/**
- * singleImageController - Egy db kép megjelenítése
- * 
- *
- * @param [type] $params
- * @return void
- */
-function kerdesController()
-{
-    //$connection = getConnection();
-    return [
-        'kerdes',
-        [
-            'title' => 'Kerdes'
-            
-        ]
-    ];
-}
-function egyKerdesController($params)
-{
+
+function egyKerdesController($params){
     $connection = getConnection();
-    $picture = getImageById($connection, $params['ID']);
+    //itt meghívom a faszomat
+    $kerdeshezTartozo = adatLeKeres($connection,$params['id']);
+    
     return [
         'kerdes',
         [
-            'title' => 'Egy kérdés ' . $picture['ID']
-            
+            'title' => 'Kerdes',
+            'kerdeshezTartozo' => $kerdeshezTartozo
         ]
     ];
 }
-function ujKerdesController()
-{
+
+function ujKerdesController(){
     //Ez csak akkor érje el, ha be van jelentkezve
     return
         [
@@ -112,8 +93,9 @@ function ujKerdesController()
         ]
     ];
 }
-function BelepesController()
-{
+/**itt csak rámegyünk az oldalra, és 
+meg tudjuk ejteni a bejelentkezést*/
+function BelepesController(){
     return[
         'belepes',
         [
@@ -121,21 +103,82 @@ function BelepesController()
         ]
     ];
 }
-function RegisztracioController()
+/**
+ * Ez meghívja azt az oldalt, ami
+ * majd ellenőrzi a Belépési kéréseket
+ */
+function BelepesElkuldController()
 {
+    $felhasznalonev = $_POST['felhasznalonev'];
+    $jelszo = $_POST['jelszo'];
+    $connection = getConnection();
+    //$id = $params['id'];
+    //kell egy post email vagy post felhasznalonev és egy post jelszó
+    return [
+        'belepteto',
+        [
+            'title' => 'Belépés',
+            'felhasznalonev' => $felhasznalonev,
+            'jelszo' => $jelszo,
+            'connection' => $connection
+            
+        ]
+    ];
+}
+function RegisztracioController(){
     return[
         'regisztracio',
         [
             'title' => 'Regisztráció'
         ]
     ];
+    //elmegy a regisztralo.php-ba.
+    //Ott megnézi, hogy az adatok jók-e,
+    //ha igen, akkor továbbengedi
 }
-function aboutController() {
+function RegisztracioElkuldController(){
+    $email = $_POST['email'];
+    $felhasznalonev = $_POST['felhasznalonev'];
+    $jelszo = $_POST['jelszo'];
+    $connection = getConnection();
     return [
-        'about',
+        'regisztralo',
         [
-            'title' => 'About'
+            'title' => 'Regisztráció',
+            'email' => $email,
+            'felhasznalonev' => $felhasznalonev,
+            'jelszo' => $jelszo,
+            'connection' => $connection
             
+        ]
+    ];
+    
+    //$id = $params['id'];
+    //ide egy post email, post felhasznalonev és egy post jelszó kell majd
+    
+    //már az elejénél lekéne ezt kódolni, szóval ide már a kódolt változata jöjjön
+    //beRegisztral($connection, $email, $felhasznalonev, $jelszo);
+    //utána a beRegisztral függvénynél kéne egy dátum is, legalább 10ed másodpercre pontosan
+    
+    /*return[
+    "redirect:/regisztracio",
+    []
+];*/
+}
+function RolunkController(){
+    return [
+        'rolunk',
+        [
+            'title' => 'Rolunk'
+            
+        ]
+    ];
+}
+function ProfilController(){
+    return[
+        'profil',
+        [
+            'title' => 'Profil'
         ]
     ];
 }

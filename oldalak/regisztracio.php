@@ -2,18 +2,21 @@
  <div class="card">
   <div class="card-body">
      REGISZTRÁCIÓ
-     <form action="/action_page.php">
+     <form action="/regisztralo" method="POST" name="regisztracio">
   <div class="form-group">
-    <label for="email">Email address:</label>
-    <input type="email" class="form-control" placeholder="Enter email" id="email">
+    <label for="email"></label>
+    <input type="email" class="form-control" placeholder="Email cím" id="email" name="email">
+    <label for="felhasznalonev"></label>
+    <input type="text" class="form-control" placeholder="Felhasználónév" id="felhasznalonev" name="felhasznalonev">
+    <label for="pwd"></label>
+    <input type="password" class="form-control" placeholder="Jelszó" id="jelszo" name="jelszo">
+    <label for="pwd"></label>
+    <input type="password" class="form-control" placeholder="Jelszó mégegyszer" id="jelszo_megegyszer" name="jelszo_megegyszer" >
   </div>
-  <div class="form-group">
-    <label for="pwd">Password:</label>
-    <input type="password" class="form-control" placeholder="Enter password" id="pwd">
-  </div>
-  Van már fiókod? <a href="/belepes">Kattints ide!</a> <br>
+  Van már fiókod? <a href="/belepes"><b>Kattints ide!</b></a> <br>
   <button type="submit" class="btn btn-primary">Regisztrálás</button>
 </form>
+    
      </div>
     </div>
 </div>

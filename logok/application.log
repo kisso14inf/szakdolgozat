@@ -33,3 +33,40 @@
 [ERROR] 2020-02-22 19:59:58Query error: Table 'gyakorikerdesek.kerdesesk' doesn't exist
 [ERROR] 2020-02-22 19:59:58Query error: Table 'gyakorikerdesek.kerdesesk' doesn't exist
 [ERROR] 2020-02-22 20:00:40Query error: Table 'gyakorikerdesek.kerdesesk' doesn't exist
+[ERROR] 2020-03-09 14:17:14Query error: 
+[ERROR] 2020-03-09 13:17:14Query error: 
+[ERROR] 2020-03-09 14:17:53Query error: 
+[ERROR] 2020-03-09 13:17:53Query error: 
+[ERROR] 2020-03-09 14:17:54Query error: 
+[ERROR] 2020-03-09 13:17:54Query error: 
+[ERROR] 2020-03-09 14:17:54Query error: 
+[ERROR] 2020-03-09 13:17:54Query error: 
+[ERROR] 2020-03-09 14:17:54Query error: 
+[ERROR] 2020-03-09 13:17:55Query error: 
+[ERROR] 2020-03-09 14:17:55Query error: 
+[ERROR] 2020-03-09 13:17:55Query error: 
+[ERROR] 2020-03-09 14:17:55Query error: 
+[ERROR] 2020-03-09 13:17:55Query error: 
+[ERROR] 2020-03-09 14:17:55Query error: 
+[ERROR] 2020-03-09 13:17:55Query error: 
+[ERROR] 2020-03-09 14:17:55Query error: 
+[ERROR] 2020-03-09 13:17:55Query error: 
+[ERROR] 2020-03-09 14:17:55Query error: 
+[ERROR] 2020-03-09 13:17:56Query error: 
+[ERROR] 2020-03-09 14:17:56Query error: 
+[ERROR] 2020-03-09 13:17:56Query error: 
+[ERROR] 2020-03-09 14:17:56Query error: 
+[ERROR] 2020-03-09 13:17:56Query error: 
+[ERROR] 2020-03-09 14:17:56Query error: 
+[ERROR] 2020-03-09 13:17:56Query error: 
+[ERROR] 2020-03-09 14:17:56Query error: 
+[ERROR] 2020-03-09 13:17:56Query error: 
+[ERROR] 2020-03-09 14:21:02Query error: 
+[ERROR] 2020-03-09 13:21:02Query error: 
+[ERROR] 2020-03-10 18:50:17Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= ?s' at line 1
+[ERROR] 2020-03-11 17:07:47Query error: 
+[ERROR] 2020-03-11 17:09:43Query error: 
+[Error] 2020-03-12 07:43:36Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
+
+[Error] 2020-03-12 07:43:41Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
+

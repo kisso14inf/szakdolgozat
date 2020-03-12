@@ -1,19 +1,16 @@
- <nav aria-label="Page navigation example" style="margin-left:5px">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Előző</span>
-      </a>
-    </li>
-    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Következő</span>
-      </a>
-    </li>
-  </ul>
+<nav>
+    <ul class="pagination">
+        <?php /*paginate($total, $page, $size)*/?>
+        <li class="page-item <?=$page<=1?"disabled":""?>"><a class="page-link" href="?size=<?=$size?>&page=<?=$page - 1?>">Previous</a></li>
+        <li class="page-item <?=$page<=2?"d-none":""?>"><a class="page-link" href="?size=<?=$size?>&page=1">1</a></li>
+        <li class="page-item <?=$page<=3?"d-none":""?>"><a class="page-link" href="#">...</a></li>
+        <li class="page-item <?=$page<=1?"d-none":""?>"><a class="page-link" href="?size=<?=$size?>&page=<?=$page - 1?>"><?=$page -1?></a></li>
+
+        <li class="page-item active"><a class="page-link" href="#"><?=$page?></a></li>
+
+        <li class="page-item <?=$page>=$lastPage?"d-none":""?>"><a class="page-link" href="?size=<?=$size?>&page=<?=$page + 1?>"><?=$page + 1?></a></li>
+        <li class="page-item <?=$page>=$lastPage-2?"d-none":""?>"><a class="page-link" href="#">...</a></li>
+        <li class="page-item <?=$page>=$lastPage-1?"d-none":""?>"><a class="page-link" href="?size=<?=$size?>&page=<?=$lastPage?>"><?=$lastPage?></a></li>
+        <li class="page-item <?=$page>=$lastPage?"disabled":""?>"><a class="page-link"href="?size=<?=$size?>&page=<?=$page + 1?>">Next</a></li>
+    </ul>
 </nav>
