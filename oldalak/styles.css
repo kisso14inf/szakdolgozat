@@ -45,20 +45,55 @@ a,a:hover
 { 
     display:inline-block;
     padding:0px 3px 0px 3px;
+    margin: 1px 1px 1px 1px;
     border-radius:5px;
 }
 .hozzaszolas
 {
     background-color: chocolate;
 }
-#latta{background-color: coral;}
-#valaszok{background-color: yellow;}
+#latta{background-color: coral; border: 1px solid darkred;}
+#valaszok{background-color: yellow; border:1px solid darkgoldenrod;}
 #ertekeles{background-color: lightgreen;}
-#felhasznalo{background-color: orange;}
-#datum{background-color: lightgray;}
+#felhasznalo{background-color: orange; border: 1px solid peru;}
+#datum{background-color: lightgray; border: 1px solid darkgray;}
 #kerdesszam{background-color: lightgray;}
 #valaszszam{background-color: lightgray;}
-#tagszam{background-color: lightgray;}
+#statisztikaszam{background-color: lightgray; border: 1px solid darkgray;}
+#cimke{background-color: lightblue;border: 1px solid lightslategray;}
+#kerdes{ background-color: lightcoral; border: 1px solid red;}
+#valasz{background-color: lightseagreen; border: 1px solid blueviolet;}
+#hasznos{
+  background-color: lightgrey;
+  border: 1px solid black;
+  width:100%;}
+#nemhasznos{
+  background-color: grey;
+  border: 1px solid black;line-height:100%;
+   width:100%;
+   background-color: grey;
+   border: 1px solid black;
+   line-height:100%; 
+   width:100%;
+}
+#ertekelesszam{
+  background-color: grey;
+  border: 1px solid black;line-height:100%;
+   width:100%;
+   background-color: grey;
+   border: 1px solid black;
+   line-height:100%; 
+   width:100%;
+  }
+#kerdesvalasz{
+  margin-bottom:3px;background-color: lightblue; 
+}
+#kvjobb{
+  display:inline-block;padding: 1%;width: 14%;background-color: #5F9EA0; border-radius: 5px; border: 1px solid black;text-align: center;
+}
+#kvbal{
+  vertical-align:top;display:inline-block;padding:1%;width: 85%; background-color: beige;border-radius: 5px; border:1px solid black;
+}
 @media screen and (max-width: 580px)
 {
     .list-group

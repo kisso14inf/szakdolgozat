@@ -93,6 +93,29 @@ function ujKerdesController(){
         ]
     ];
 }
+function ujKerdesElkuldController(){
+    $kerdesrov = $_POST["kerdesrov"];
+    $akerdes = $_POST["akerdes"];
+    $felh_id = $_POST["felh_id"];
+    $cimke1 = $_POST["0"];
+    $cimke2 = $_POST["1"];
+    $cimke3 = $_POST["2"];
+    $cimke4 = $_POST["3"];
+    $cimke5 = $_POST["4"];
+    $cimkek = array($cimke1, $cimke2, $cimke3, $cimke4, $cimke5);
+    //cimke1, cimke2, cimke3, cimke4, cimke5
+    return[
+        'ujkerdeselkuld',
+        [
+            'title' => 'Új kérdés elküldése',
+            'kerdesrov' => $kerdesrov,
+            'akerdes' => $akerdes,
+            'felh_id' => $felh_id,
+            'cimkek' => $cimkek
+            
+        ]
+    ];
+}
 /**itt csak rámegyünk az oldalra, és 
 meg tudjuk ejteni a bejelentkezést*/
 function BelepesController(){
@@ -125,6 +148,14 @@ function BelepesElkuldController()
         ]
     ];
 }
+function KijelentkezesController(){
+    return[
+        'kijelentkezes',
+        [
+            'title' => 'Kijelentkezés'
+        ]
+    ];
+}
 function RegisztracioController(){
     return[
         'regisztracio',
@@ -152,18 +183,23 @@ function RegisztracioElkuldController(){
             
         ]
     ];
-    
-    //$id = $params['id'];
-    //ide egy post email, post felhasznalonev és egy post jelszó kell majd
-    
-    //már az elejénél lekéne ezt kódolni, szóval ide már a kódolt változata jöjjön
-    //beRegisztral($connection, $email, $felhasznalonev, $jelszo);
-    //utána a beRegisztral függvénynél kéne egy dátum is, legalább 10ed másodpercre pontosan
-    
-    /*return[
-    "redirect:/regisztracio",
-    []
-];*/
+}
+    function ValaszElkuldController(){
+        $valasz = $_POST['valasz'];
+        $kerdes_id = $_POST['kerdes_id'];
+        $valaszolo_id = $_POST['valaszolo_id'];
+        $connection = getConnection();
+        return [
+            'valaszelkuld',
+            [
+                'title' => 'Válasz Elküldése',
+                'valasz' => $valasz,
+                'kerdes_id' => $kerdes_id,
+                'valaszolo_id' => $valaszolo_id,
+                'connection' => $connection
+                
+            ]
+            ];
 }
 function RolunkController(){
     return [
@@ -181,4 +217,99 @@ function ProfilController(){
             'title' => 'Profil'
         ]
     ];
+}
+function keresesController($params){
+    return[
+        'kereses',
+        [
+            'title' => 'Keresés',
+            'keresendo' => $params["keresendo"]
+        ]
+    ];
+}
+function singleImageController($params)
+{
+    $connection = getConnection();
+    $picture = getImageById($connection, $params['id']);
+    return [
+        'singleImage',
+        [
+            'title' => 'Image ' . $picture['id'],
+            'picture' => $picture
+        ]
+    ];
+}
+function KerdeseimController(){
+    
+    return [
+        'kerdeseim',
+        [
+            'title' => 'Kérdéseim'
+            
+        ]
+    ];
+}
+function ValaszaimController(){
+    return [
+        'valaszaim',
+        [
+            'title' => 'Válaszaim'
+        ]
+    ];
+}
+function ErtesitesekController(){
+    return [
+        'ertesitesek',
+        [
+            'title' => 'Értesítések'
+        ]
+    ];
+}
+function CimkeController($params){
+    return [
+        'cimke',
+        [
+            'title' => 'Címkék',
+            'keresendo' => $params["keresendo"]
+        ]
+    ];
+}
+function CimkeHozzaaddController(){
+    return [
+        'cimkehozzaadd',
+        [
+            'title' => 'Címkék Hozzáadása'
+        ]
+    ];
+}
+function ErtekelesController(){
+    $hvnh = $_POST['hvnh'];
+    $valasz_id = $_POST['valasz_id'];
+    $felh_id = $_POST['felh_id'];
+    $connection = getConnection();
+    return [
+        'ertekeles',
+        [
+            'title' => 'Értékelés',
+            'hvnh' => $hvnh,
+            'valasz_id' => $valasz_id,
+            'felh_id' => $felh_id,
+            'connection' => $connection  
+        ]
+    ];
+}
+function ProbaController(){
+    return [
+        'proba',
+        ['title' => 'Próba'
+        ]
+    ];
+}
+function FormFeldolgozController(){
+    return[
+        'formfeldolgoz',
+        [
+            'title' => 'formfeldolgoz'
+        ]
+        ];
 }

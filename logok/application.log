@@ -70,3 +70,104 @@
 
 [Error] 2020-03-12 07:43:41Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
 
+[ERROR] 2020-03-15 14:21:53Query error: 
+[ERROR] 2020-03-16 12:59:56Query error: 
+[ERROR] 2020-03-16 13:00:10Query error: 
+[ERROR] 2020-03-16 13:00:33Query error: 
+[ERROR] 2020-03-16 13:00:34Query error: 
+[ERROR] 2020-03-16 13:00:34Query error: 
+[ERROR] 2020-03-16 13:00:34Query error: 
+[ERROR] 2020-03-16 13:00:35Query error: 
+[ERROR] 2020-03-16 13:00:35Query error: 
+[ERROR] 2020-03-16 13:00:35Query error: 
+[ERROR] 2020-03-16 13:00:52Query error: 
+[ERROR] 2020-03-16 13:01:12Query error: 
+[ERROR] 2020-03-16 13:01:13Query error: 
+[ERROR] 2020-03-16 13:01:13Query error: 
+[ERROR] 2020-03-16 13:01:13Query error: 
+[ERROR] 2020-03-16 13:01:14Query error: 
+[ERROR] 2020-03-16 13:01:14Query error: 
+[ERROR] 2020-03-16 13:01:14Query error: 
+[ERROR] 2020-03-16 13:01:27Query error: 
+[ERROR] 2020-03-16 13:01:27Query error: 
+[ERROR] 2020-03-16 13:01:27Query error: 
+[ERROR] 2020-03-16 13:01:28Query error: 
+[ERROR] 2020-03-16 13:02:15Query error: 
+[ERROR] 2020-03-16 13:04:01Query error: 
+[ERROR] 2020-03-16 13:05:17Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:05:18Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:05:18Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:05:18Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:05:19Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:08:25Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:09:38Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:09:39Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:09:39Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:09:39Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:09:39Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:09:40Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:09:40Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:09:40Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:09:40Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[ERROR] 2020-03-16 13:09:44Query error: Unknown column 'felhasznalo_id' in 'where clause'
+[Error] 2020-03-18 07:41:51Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
+
+[Error] 2020-03-18 07:42:01Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
+
+[Error] 2020-03-18 07:42:37Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
+
+[Error] 2020-03-18 07:42:39Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
+
+[Error] 2020-03-18 07:42:47Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
+
+[Error] 2020-03-18 07:42:49Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
+
+[ERROR] 2020-03-19 21:42:49Query error: 
+[ERROR] 2020-03-19 21:42:49Query error: 
+[ERROR] 2020-03-19 21:42:49Query error: 
+[ERROR] 2020-03-22 23:31:23Query error: 
+[Error] 2020-03-25 07:46:56Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
+
+[ERROR] 2020-03-31 10:37:02Query error: 
+[ERROR] 2020-03-31 10:38:20Query error: 
+[ERROR] 2020-03-31 10:38:21Query error: 
+[ERROR] 2020-03-31 10:38:34Query error: 
+[ERROR] 2020-04-03 21:24:24Query error: Query was empty
+[ERROR] 2020-04-03 21:24:24Query error: Query was empty
+[ERROR] 2020-04-03 21:24:24Query error: Query was empty
+[ERROR] 2020-04-03 21:24:43Query error: Query was empty
+[ERROR] 2020-04-03 21:24:43Query error: Query was empty
+[ERROR] 2020-04-03 21:24:43Query error: Query was empty
+[ERROR] 2020-04-03 21:25:22Query error: Query was empty
+[ERROR] 2020-04-03 21:25:22Query error: Query was empty
+[ERROR] 2020-04-03 21:25:22Query error: Query was empty
+[ERROR] 2020-04-03 21:28:48Query error: Query was empty
+[ERROR] 2020-04-03 21:28:48Query error: Query was empty
+[ERROR] 2020-04-03 21:28:48Query error: Query was empty
+[ERROR] 2020-04-03 23:15:13Query error: Query was empty
+[ERROR] 2020-04-03 23:15:14Query error: Query was empty
+[ERROR] 2020-04-03 23:15:14Query error: Query was empty
+[ERROR] 2020-04-04 23:51:45Query error: Query was empty
+[ERROR] 2020-04-04 23:51:46Query error: Query was empty
+[ERROR] 2020-04-04 23:51:46Query error: Query was empty
+[ERROR] 2020-04-06 19:35:31Query error: Query was empty
+[ERROR] 2020-04-06 19:36:37Query error: Query was empty
+[ERROR] 2020-04-06 19:37:10Query error: Query was empty
+[ERROR] 2020-04-06 19:37:15Query error: Query was empty
+[ERROR] 2020-04-06 19:37:32Query error: Query was empty
+[ERROR] 2020-04-06 19:40:10Query error: Query was empty
+[ERROR] 2020-04-06 19:40:14Query error: Query was empty
+[ERROR] 2020-04-06 19:42:45Query error: Query was empty
+[ERROR] 2020-04-06 19:42:49Query error: Query was empty
+[ERROR] 2020-04-06 19:44:49Query error: Query was empty
+[ERROR] 2020-04-06 19:45:21Query error: Column count doesn't match value count at row 1
+[ERROR] 2020-04-06 19:46:11Query error: Column count doesn't match value count at row 1
+[ERROR] 2020-04-06 19:47:15Query error: Column count doesn't match value count at row 1
+[ERROR] 2020-04-06 20:27:39Query error: 
+[ERROR] 2020-04-06 21:34:02Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = ?' at line 1
+[ERROR] 2020-04-06 21:34:19Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = ?' at line 1
+[ERROR] 2020-04-06 21:35:44Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = -1' at line 1
+[ERROR] 2020-04-06 21:39:30Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = ?' at line 1
+[ERROR] 2020-04-06 21:41:18Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = ?' at line 1
+[ERROR] 2020-04-06 22:01:30Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 26' at line 1
+[ERROR] 2020-04-06 22:15:14Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = ?' at line 1

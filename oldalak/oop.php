@@ -11,14 +11,28 @@ if($url == "/belepteto"){
    if(isset(BelepesEllenorzes($connection, $felhasznalonev, $jelszo)["id"])){
    $id1 = BelepesEllenorzes($connection, $felhasznalonev, $jelszo)["id"];
    $rang1 = RangVisszaAdd($connection, $id1)[0]["megnevezes"];
-   setcookie("rang", $rang1, time()+36);
-   setcookie("felhasznalonev", $felhasznalonev1, time()+36);
-   setcookie("jelszo", $jelszo1, time()+36);
+   setcookie("rang", $rang1, time()+3600);
+   setcookie("felhasznalonev", $felhasznalonev1, time()+3600);
+   setcookie("jelszo", $jelszo1, time()+3600);
+
     }}}
    //Itt hibát ír ki, ha nincs ilyen felhasználó vagy jelszó
   
    
 }
+elseif($url == "/kijelentkezes"){
+    if(isset($_COOKIE["rang"])){$rang1 = $_COOKIE["rang"];
+    if(isset($_COOKIE["felhasznalonev"])){$felhasznalonev1 = $_COOKIE["felhasznalonev"];
+    if(isset($_COOKIE["jelszo"])){$jelszo1 = $_COOKIE["jelszo"];
+    setcookie("rang", $rang1, time()-3600);
+    setcookie("felhasznalonev", $felhasznalonev1, time()-3600);
+    setcookie("jelszo", $jelszo1, time()-3600);
+    }}}
+    //Itt hibát ír ki, ha nincs ilyen felhasználó vagy jelszó
+    header( "Refresh:2; url=/", true, 303);
+    
+ }
+
 //eddig minden szipi szuper, így közös a cél
 $proba = "Látogató";
 if(isset($_COOKIE["felhasznalonev"]) && isset($_COOKIE["jelszo"])) $proba = $_COOKIE["rang"];
@@ -46,16 +60,16 @@ class Mindenki {
     }*/
        
     private $balsav1 = '<li class="list-group-item d-flex justify-content-between align-items-center">
-    <a href="/profil">Kérdések</a>
-    <span class="badge badge-primary badge-pill">12</span>
+    <a href="/kerdesek">Kérdések</a>
+    <span class="badge badge-primary badge-pill">K</span>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-    <a href="/profil">Tagok</a>
-    <span class="badge badge-primary badge-pill">12</span>
+    <a href="/tagok">Tagok</a>
+    <span class="badge badge-primary badge-pill">T</span>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-    <a href="/profil">Címkék</a>
-    <span class="badge badge-primary badge-pill">12</span>
+    <a href="/cimke/osszes">Címkék</a>
+    <span class="badge badge-primary badge-pill">C</span>
     </li>
     ';
     
@@ -81,25 +95,27 @@ class Latogato extends Mindenki{}
 //child class
 class Tag extends Mindenki {
     //Ezeket, majd le akarom egyszerűsíteni
+    //adatok
+    
 	private $balsav2 = '<li class="list-group-item d-flex justify-content-between align-items-center">
     <a href="/profil">Profil</a>
-    <span class="badge badge-primary badge-pill">12</span>
+    <span class="badge badge-primary badge-pill">P</span>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-    <a href="/profil">Értesítések</a>
+    <a href="/ertesitesek">Értesítések</a>
     <span class="badge badge-primary badge-pill">12</span>
     </li> 
     <li class="list-group-item d-flex justify-content-between align-items-center">
-    <a href="/profil">Kérdéseim</a>
-    <span class="badge badge-primary badge-pill">12</span>
+    <a href="/kerdeseim">Kérdéseim</a>
+    <span class="badge badge-primary badge-pill"></span>
     </li> 
     <li class="list-group-item d-flex justify-content-between align-items-center">
-    <a href="/profil">Válaszaim</a>
+    <a href="/valaszaim">Válaszaim</a>
     <span class="badge badge-primary badge-pill">12</span>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
     <a href="/ujkerdes">Új Kérdés</a>
-    <span class="badge badge-primary badge-pill">12</span>
+    <span class="badge badge-primary badge-pill">+</span>
     </li>
     ';
 	public function setBalsav2($balsav2) {
@@ -125,8 +141,8 @@ class Admin extends Tag
 {
     
     private $balsav3 = '<li class="list-group-item d-flex justify-content-between align-items-center">
-    <a href="/profil">Profil</a>
-    <span class="badge badge-primary badge-pill">14</span>
+    <a href="/cimkehozzaadd">Címkék Hozzáadása</a>
+    <span class="badge badge-primary badge-pill">CH</span>
     </li><br>';
 	public function setBalsav3($balsav3) {
 		$this->balsav3 = $balsav3;
