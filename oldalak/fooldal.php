@@ -26,9 +26,9 @@
                   else{ echo $akerdes;}
                   ?>
                   <br>
-                  <?php $kapcimke = KerdesCimke($kerdes['id']); 
+                  <?php $kapcimke = KerdesCimke("kerdes",$kerdes['id']); 
                         foreach($kapcimke as $cimke){
-                          $megkCimke = KapCimke($cimke['cimke_id']);
+                          $megkCimke = CimkeAdat("id",$cimke['cimke_id']);
                           echo '<div class="osszesitett" id="cimke"><a href="/cimke/'. $megkCimke[0]['megnevezes'] .'">#' . $megkCimke[0]['megnevezes'] . '</a></div>';
                           // <?=$megkCimke[0]['megnevezes']</div>
                         }

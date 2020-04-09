@@ -17,10 +17,15 @@
     <!-- Meg kell nyitni egy oldalt, pl.: /kereses/ki-ez-a-cigany-ha részen.-->
     <!--  Szerintem nem is form (POST-tal) kellene ezt megcsinálni-->
     
-    <form action="/kereses" method="get" class="form-inline my-2 my-lg-0" style="padding-right:5px">
-      <input class="form-control mr-sm-2" type="search" placeholder="Írd be a kulcsszavakat" aria-label="Search" name="k" >
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Keresés</button>
-    </form>
+    
+      <input class="form-control mr-sm-2" style="width:200px;" type="search" placeholder="Írd be a kulcsszavakat" aria-label="Search" id="k" onkeyup="Gepel();">
+      <button class="btn btn-outline-success my-2 my-sm-0" style="margin-right:5px;" type="submit" onclick="KeresesMegnyom();">Keresés</button>
     <?=$menusav[0]?>
   </div>
 </nav>
+<script>
+function KeresesMegnyom(){
+  var value = $("#k").val().replace(/\s/g, '_');
+  location.href = "/kereses/" + value;
+}
+</script>

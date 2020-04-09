@@ -16,19 +16,19 @@
     if($ertekelesID == 0){
       //itt akkor insert lesz
       ValasztErtekel("Beilleszt", $felh_id, $valasz_id, $ertekelesSzam);
-      echo "Beilleszt";
+      die();
     }
     else{
         //itt megnézem az ertekelesID-hoz kapcsolódó ertekeles-t
         if($ertekelesSzam != ErtekelesAdat("id",$ertekelesID)[0]["ertekeles"]){
             //ha nem egyenlő, akkor UPDATE
             ValasztErtekel("Frissít", $felh_id, $valasz_id, $ertekelesSzam);
-            echo "Frissít";
+            die();
         }
-        if($ertekelesSzam == ErtekelesAdat("id",$ertekelesID)[0]["ertekeles"]){
+        elseif($ertekelesSzam == ErtekelesAdat("id",$ertekelesID)[0]["ertekeles"]){
             //ha egyenlő, akkor TÖRLÉS
             ValasztErtekel("Töröl", $felh_id, $valasz_id, $ertekelesSzam); //a hibánál, ennek a sorszámát írja ki
-            echo "Töröl";
+            die();
         }
     }
 ?>

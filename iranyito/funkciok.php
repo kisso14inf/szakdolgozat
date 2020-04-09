@@ -355,11 +355,16 @@ function RangVisszaAdd($connection, $id){
     }}
     
 }
-function KerdesCimke($id){
+function KerdesCimke($mit,$mi){
     $connection = getConnection();
+    if($mit == "cimke")
+    $query = "SELECT * FROM kerdes_cimke WHERE cimke_id = ?";
+    if($mit == "kerdes")
     $query = "SELECT * FROM kerdes_cimke WHERE kerdes_id = ?";
+    if($mit == "")
+    $query = "SELECT * FROM kerdes_cimke";
    if ($statment = mysqli_prepare($connection, $query)) { //előkészítés
-       mysqli_stmt_bind_param($statment, "i", $id); // itt kerül behelyettesítésre a kérdőjelek helyére a változó ii- integer and integer
+       if($mit != "" && $mit != "")mysqli_stmt_bind_param($statment, "i", $mi); // itt kerül behelyettesítésre a kérdőjelek helyére a változó ii- integer and integer
        mysqli_stmt_execute($statment); //végrehajtás
        $result = mysqli_stmt_get_result($statment); //eredménymegszerzés
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -371,19 +376,6 @@ function KerdesCimke($id){
    //Ezt most nem tudom, hogyan csináljam meg
    //idk why
    //ez pl. visszaadd egy tömböt, aminek 5eleme van. 1-2-3-4-5
-}
-function KapCimke($id){
-    $connection = getConnection();
-    $query = "SELECT * FROM cimkek WHERE id = ?";
-       if ($statment = mysqli_prepare($connection, $query)) { //előkészítés
-           mysqli_stmt_bind_param($statment, "i", $id); // itt kerül behelyettesítésre a kérdőjelek helyére a változó ii- integer and integer
-           mysqli_stmt_execute($statment); //végrehajtás
-           $result = mysqli_stmt_get_result($statment); //eredménymegszerzés
-            return mysqli_fetch_all($result, MYSQLI_ASSOC);
-       } else {
-           logMessage("ERROR", 'Query error: ' . mysqli_error($connection));
-           errorPage();
-       }
 }
 function Cimke(){
     $connection = getConnection();
@@ -724,16 +716,19 @@ function KerdesAdat($mit, $mi){
     if($mit == "id")
     $query = "SELECT * FROM kerdesek WHERE id = ?";
     if($mit == "kerdesrov")
-    $query = "SELECT * FROM kerdesek WHERE kerdesrov = ?";
+    $query = "SELECT * FROM kerdesek WHERE kerdesrov LIKE ? ";
     if($mit == "akerdes")
-    $query = "SELECT * FROM kerdesek WHERE akerdes = ?";
+    $query = "SELECT * FROM kerdesek WHERE akerdes LIKE ? ";
     if($mit == "datum")
     $query = "SELECT * FROM kerdesek WHERE datum = ?";
     if($mit == "")
     $query = "SELECT * FROM kerdesek";
        if ($statment = mysqli_prepare($connection, $query)) { //előkészítés
             if($mit == "id")mysqli_stmt_bind_param($statment, "i", $mi);  
-            if($mit == "kerdesrov" || $mit == "akerdes" || $mit == "datum")mysqli_stmt_bind_param($statment, "s", $mi);    
+            if($mit == "kerdesrov" || $mit == "akerdes" || $mit == "datum"){
+            $mi = "%{$mi}%"; 
+            mysqli_stmt_bind_param($statment, "s", $mi);
+            }    
             mysqli_stmt_execute($statment); //végrehajtás
            $result = mysqli_stmt_get_result($statment); //eredménymegszerzés
            return mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -898,9 +893,9 @@ if($mit == "Frissít"){
     }
     if($ertekelesID != 0){
     $datum = date("Y-m-d H:i:s");
-    $query = "UPDATE ertekelesek SET ertekeles = 1 AND datum = ? WHERE id = ?";
+    $query = "UPDATE ertekelesek SET ertekeles = ? , datum = ? WHERE id = ?";
     if ($statment = mysqli_prepare($connection, $query)) {
-       mysqli_stmt_bind_param($statment, "si", $datum, $ertekelesID); //bind-hozzákötés "i"-integer 
+       mysqli_stmt_bind_param($statment, "isi", $ertekeles, $datum, $ertekelesID); //bind-hozzákötés "i"-integer 
         mysqli_stmt_execute($statment);   
     } else {
         logMessage("ERROR", 'Query error: ' . mysqli_error($connection));
@@ -909,4 +904,48 @@ if($mit == "Frissít"){
 }
 }
 }
-
+function FelhKerdSzam(){
+    $connection = getConnection();
+    $query = "SELECT count(fk.felh_id) as szam, f.felhasznalonev as felh FROM felhasznalok f
+              INNER JOIN felhasznalo_kerdes fk ON f.id = fk.felh_id
+              GROUP BY fk.felh_id LIMIT 5";
+    if ($statment = mysqli_prepare($connection, $query)) { //előkészítés   
+         mysqli_stmt_execute($statment); //végrehajtás
+        $result = mysqli_stmt_get_result($statment); //eredménymegszerzés
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    } else {
+        logMessage("ERROR", 'Query error: ' . mysqli_error($connection));
+        errorPage();
+        
+    } 
+}
+function FelhValSzam(){
+    $connection = getConnection();
+    $query = "SELECT count(fv.felh_id) as szam, f.felhasznalonev as felh FROM felhasznalok f
+              INNER JOIN felhasznalo_valasz fv ON f.id = fv.felh_id
+              GROUP BY fv.felh_id LIMIT 5";
+    if ($statment = mysqli_prepare($connection, $query)) { //előkészítés   
+         mysqli_stmt_execute($statment); //végrehajtás
+        $result = mysqli_stmt_get_result($statment); //eredménymegszerzés
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    } else {
+        logMessage("ERROR", 'Query error: ' . mysqli_error($connection));
+        errorPage();
+        
+    } 
+}
+function KerdValSzam(){
+    $connection = getConnection();
+    $query = "SELECT count(kv.kerdes_id) as szam, k.kerdesrov as kerdrov, k.id as id FROM kerdesek k
+              INNER JOIN kerdes_valasz kv ON k.id = kv.kerdes_id
+              GROUP BY kv.kerdes_id LIMIT 5";
+    if ($statment = mysqli_prepare($connection, $query)) { //előkészítés   
+         mysqli_stmt_execute($statment); //végrehajtás
+        $result = mysqli_stmt_get_result($statment); //eredménymegszerzés
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    } else {
+        logMessage("ERROR", 'Query error: ' . mysqli_error($connection));
+        errorPage();
+        
+    } 
+}

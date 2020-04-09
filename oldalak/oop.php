@@ -60,7 +60,7 @@ class Mindenki {
     }*/
        
     private $balsav1 = '<li class="list-group-item d-flex justify-content-between align-items-center">
-    <a href="/kerdesek">Kérdések</a>
+    <a href="/kerdesek/Osszes">Kérdések</a>
     <span class="badge badge-primary badge-pill">K</span>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -68,7 +68,7 @@ class Mindenki {
     <span class="badge badge-primary badge-pill">T</span>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
-    <a href="/cimke/osszes">Címkék</a>
+    <a href="/cimke/Összes">Címkék</a>
     <span class="badge badge-primary badge-pill">C</span>
     </li>
     ';

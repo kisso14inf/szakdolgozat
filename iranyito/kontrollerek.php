@@ -227,18 +227,6 @@ function keresesController($params){
         ]
     ];
 }
-function singleImageController($params)
-{
-    $connection = getConnection();
-    $picture = getImageById($connection, $params['id']);
-    return [
-        'singleImage',
-        [
-            'title' => 'Image ' . $picture['id'],
-            'picture' => $picture
-        ]
-    ];
-}
 function KerdeseimController(){
     
     return [
@@ -271,6 +259,7 @@ function CimkeController($params){
         [
             'title' => 'Címkék',
             'keresendo' => $params["keresendo"]
+            
         ]
     ];
 }
@@ -294,7 +283,14 @@ function ErtekelesController(){
             'hvnh' => $hvnh,
             'valasz_id' => $valasz_id,
             'felh_id' => $felh_id,
-            'connection' => $connection  
+            'connection' => $connection
+        ]
+    ];
+}
+function InfoController(){
+    return [
+        'info',
+        ['title' => 'Információk'
         ]
     ];
 }

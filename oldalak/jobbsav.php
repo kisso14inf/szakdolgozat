@@ -12,13 +12,16 @@
 </div>
 <div class="card-body">
     Legfelkapottabb kérdések <br>
-    <div class="osszesitett" id="kerdes">Miért van ez így úgy? 15 válasz</div>
-    <div class="osszesitett" id="kerdes">Miért van ez így úgy? 15 válasz</div>
-    <div class="osszesitett" id="kerdes">Miért van ez így úgy? 15 válasz</div>
-    <div class="osszesitett" id="kerdes">Miért van ez így úgy? 15 válasz</div>
-    <div class="osszesitett" id="kerdes">Miért van ez így úgy? 15 válasz</div>
+    <?php 
+    $legtobbvalaszok = KerdValSzam();
+    foreach($legtobbvalaszok as $legtobbvalasz){?>
+       <a href="/kerdes/<?=$legtobbvalasz["id"]?>"> <div class="osszesitett" id="felhasznalo"><?=$legtobbvalasz["kerdrov"]?></div> <?=$legtobbvalasz["szam"]?> válasz</a> <br>
+    <?php } 
+        for($i=0;$i<5-count($legtobbvalaszok);$i++){
+    ?>
+    <a href="/info"><div class="osszesitett" id="urescella">Üres cella</div></a> <br>
+        <?php } ?>
     Erre még nem válaszoltak<br>
-    
     <?php 
         $kerdesek = KerdesAdat("","");
         //maximum 5öt írjon ki
@@ -27,22 +30,29 @@
             if(count(KerdesValasz("kerdes",$kerdes["id"]))==0){
              if($max5<=5){?>
                 <a href="/kerdes/<?=$kerdes["id"]?>"><div class="osszesitett" id="valasz"><?=$kerdes["kerdesrov"]?></div></a>
-             <?php }
-            }
-        endforeach;
-         ?>
-    Legaktívabb kérdezők<br>
-    1. <div class="osszesitett" id="felhasznalo">macilaci15</div> 230 kérdés <br>
-    2. <div class="osszesitett" id="felhasznalo">macilaci15</div> 230 kérdés <br>
-    3. <div class="osszesitett" id="felhasznalo">macilaci15</div> 230 kérdés <br>
-    4. <div class="osszesitett" id="felhasznalo">macilaci15</div> 230 kérdés <br>
-    5. <div class="osszesitett" id="felhasznalo">macilaci15</div> 230 kérdés <br>
+             <?php } } endforeach; 
+             for($i=0;$i<5-$max5;$i++){ ?>
+                <a href="/info"><div class="osszesitett" id="urescella">Üres cella</div></a> <br>
+        <?php } ?>
+             
+    <br>Legaktívabb kérdezők<br>
+    <?php 
+    $legtobbkerdesek = FelhKerdSzam();
+    foreach($legtobbkerdesek as $legtobbkerdes){?>
+        <div class="osszesitett" id="felhasznalo"><?=$legtobbkerdes["felh"]?></div> <?=$legtobbkerdes["szam"]?> kérdés <br>
+    <?php }
+    for($i=0;$i<5-count($legtobbkerdesek);$i++){ ?>
+    <a href="/info"><div class="osszesitett" id="urescella">Üres cella</div></a> <br>
+        <?php } ?>
     Legaktívabb válaszolók<br>
-    1. <div class="osszesitett" id="felhasznalo">macilaci15</div> 230 válasz <br>
-    2. <div class="osszesitett" id="felhasznalo">macilaci15</div> 230 válasz <br>
-    3. <div class="osszesitett" id="felhasznalo">macilaci15</div> 230 válasz <br>
-    4. <div class="osszesitett" id="felhasznalo">macilaci15</div> 230 válasz <br>
-    5. <div class="osszesitett" id="felhasznalo">macilaci15</div> 230 válasz <br>
+    <?php 
+    $legtobbkerdesek = FelhValSzam();
+    foreach($legtobbkerdesek as $legtobbkerdes){?>
+        <div class="osszesitett" id="felhasznalo"><?=$legtobbkerdes["felh"]?></div> <?=$legtobbkerdes["szam"]?> válasz <br>
+    <?php } 
+    for($i=0;$i<5-count($legtobbkerdesek);$i++){ ?>
+    <a href="/info"><div class="osszesitett" id="urescella">Üres cella</div></a> <br>
+        <?php } ?>
     A legújabb tagok<br>
     <?php 
         $tagok = FelhasznaloAdat("","");
@@ -58,7 +68,11 @@
     <?php  endfor;
            endif;
         endif;
-    ?>
+        if(count($tagok) <5){
+        for($i=0;$i<5-count($tagok);$i++){
+            ?>
+            <a href="/info"><div class="osszesitett" id="urescella">Üres cella</div></a> <br>
+                <?php } }?>
 </div>
 </div>
 </div>

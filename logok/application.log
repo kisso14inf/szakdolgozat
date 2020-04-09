@@ -171,3 +171,24 @@
 [ERROR] 2020-04-06 21:41:18Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = ?' at line 1
 [ERROR] 2020-04-06 22:01:30Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = 26' at line 1
 [ERROR] 2020-04-06 22:15:14Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE id = ?' at line 1
+[ERROR] 2020-04-07 21:19:57Query error: Query was empty
+[ERROR] 2020-04-07 21:20:04Query error: Query was empty
+[ERROR] 2020-04-07 22:21:43Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%?%' at line 1
+[ERROR] 2020-04-07 22:21:43Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%?%' at line 1
+[ERROR] 2020-04-07 22:21:43Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%?%' at line 1
+[ERROR] 2020-04-07 22:21:59Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%?%' at line 1
+[ERROR] 2020-04-07 22:21:59Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%?%' at line 1
+[ERROR] 2020-04-07 22:21:59Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%?%' at line 1
+[ERROR] 2020-04-07 22:31:40Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%?%' at line 1
+[ERROR] 2020-04-07 22:31:40Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%?%' at line 1
+[ERROR] 2020-04-07 22:31:40Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%?%' at line 1
+[ERROR] 2020-04-07 22:36:06Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%?%' at line 1
+[ERROR] 2020-04-07 22:36:06Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%?%' at line 1
+[ERROR] 2020-04-07 22:36:06Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%?%' at line 1
+[ERROR] 2020-04-08 07:59:09Query error: 
+[ERROR] 2020-04-08 07:59:09Query error: 
+[ERROR] 2020-04-08 07:59:09Query error: 
+[Error] 2020-04-09 08:06:38Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
+
+[Error] 2020-04-09 08:06:48Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
+
