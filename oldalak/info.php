@@ -4,14 +4,12 @@
             <h3>Információk</h3>
 
             <h4>Nem jártál még ezen az oldalon?</h4>
-            Üdv, idegen! Köszöntelek ezen az oldaon!
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis earum voluptatum blanditiis at fugiat
-            provident assumenda eaque vitae, esse nobis doloribus corrupti, incidunt harum eveniet, beatae corporis.
-            Voluptate, odio fugit.
+            Üdv, idegen! Köszöntelek ezen az oldalon!
+            Általános és nem általános, gyakori és nem gyakori kérdések találhatóak meg ezen az oldalon, amire a 
+            felhasználók igyekeznek válaszolni.
             <h4>Kis segítség</h4>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus accusantium iure perspiciatis, aut rerum
-            numquam eos explicabo aspernatur saepe quis doloribus fugiat exercitationem nobis quod itaque pariatur sint
-            veniam rem!
+            Az oldalon rengeteg rublika gomb és miegymás van itt és ott.
+            Itt most kis gyorsan összeszedett ismertetővel fogunk szolgálni.
             <br>
             <div class="osszesitett" id="urescella">Üres cella</div>
             Mi ez? Az "üres cella"-t jelenleg az oldal kitöltésére van használva.
@@ -27,9 +25,8 @@
             <div class="osszesitett" id="latta">Látta: 5</div> A látta szám egy elég fontos statisztikai tényező. Magának a
             kérdezőnek és akár a többi embernek is, hogy mennyire felkapott az a kérdés.
             <br>
-            <div class="osszesitett" id="valaszok">Válaszok: 3</div> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Cumque vero saepe distinctio numquam sapiente dignissimos eaque, quae, nobis voluptatem vitae ipsam facere esse. 
-            Numquam recusandae excepturi ratione explicabo ab consequuntur.
+            <div class="osszesitett" id="valaszok">Válaszok: 3</div> A válaszok a legfontosabbak a kérdés feltevőjének.
+            Főleg, hogy ha az segít is rajta.
             <br>
             <div class="osszesitett" id="datum">Beküldve 2020-04-08 9:34:15</div>
             <div class="osszesitett" id="datum">Beküldve 5perccel ezelőtt</div>
@@ -44,12 +41,13 @@
             Voluptatibus eum porro nobis? Officia reiciendis magnam quia exercitationem iste 
             tempora et quos, incidunt fugiat qui mollitia distinctio magni expedita odit aspernatur.
             <br>
-            
+            <h4></h4>
             
             <h4>Vannak ötleteid?</h4>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero ex inventore sequi numquam quo sunt adipisci,
             deleniti aspernatur rerum provident dicta libero, eveniet reiciendis, omnis rem. Illo numquam corporis
             assumenda?
+
         </div>
 </div>
 </div>

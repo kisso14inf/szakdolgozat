@@ -217,6 +217,7 @@ function FelhasznaloRegisztralas($connection, $email, $felhasznalonev, $jelszo){
         
     } else {
         logMessage("ERROR", 'Query error: ' . mysqli_error($connection));
+        echo "nincs";
         errorPage();
     } 
    
@@ -436,7 +437,6 @@ function ValaszIDhezAdat($id){
            errorPage();
        }
 }
-
 function UjKerdesElkuld($kerdesrov, $akerdes, $felh_id, $cimkek){
     //A "kerdesek"-be bele kell tenni:
     //kerdesrov, akerdes, datum
@@ -481,7 +481,6 @@ function UjKerdesElkuld($kerdesrov, $akerdes, $felh_id, $cimkek){
         for($i=0;$i<count($cimkekID);$i++){
         $query = "INSERT INTO kerdes_cimke (kerdes_id, cimke_id)
     VALUES (?, ?)";
-    echo  $cimkekID[$i];
     if ($statment = mysqli_prepare($connection, $query)) {
         mysqli_stmt_bind_param($statment, "ii", $kerdesID, $cimkekID[$i]); //bind-hozzákötés "i"-integer 
         mysqli_stmt_execute($statment); 
@@ -503,8 +502,17 @@ function UjKerdesElkuld($kerdesrov, $akerdes, $felh_id, $cimkek){
         errorPage();
     }
     }
+    
+    $hova = KerdesAdat("datum",$datum)[0]["id"];
+    
+    echo '<script type="text/javascript">
+    setTimeout(myFunction, 500);
+    function myFunction() {
+    alert("Sikeresen elküldted a kérdésedet!");
+    window.location = "/kerdes/'.$hova.'";
+    }
+    </script>';
 } 
-
 //mindegyik adatbázis táblához kellene egy FUNCTION-t csinálni.
 //És akkor külön azt is bekérni, hogy mi alapján kérek , vagy ha van bejövő érték, és mi, akkor azt adja vissza.
 /**
@@ -512,10 +520,7 @@ function UjKerdesElkuld($kerdesrov, $akerdes, $felh_id, $cimkek){
  *   //$mi -> Egy feltétel, amihez csatlakozó adatokat SELECTelem.
  *   //$mit -> 
  *  }
- * 
- * 
  */
-
 function MostLattaAKerdestAFelhasznalo($kerdes_id,$felhasznalo_id){
     $connection = getConnection();
     $query = "INSERT INTO lattak (datum)
@@ -720,7 +725,7 @@ function KerdesAdat($mit, $mi){
     if($mit == "akerdes")
     $query = "SELECT * FROM kerdesek WHERE akerdes LIKE ? ";
     if($mit == "datum")
-    $query = "SELECT * FROM kerdesek WHERE datum = ?";
+    $query = "SELECT * FROM kerdesek WHERE datum LIKE ?";
     if($mit == "")
     $query = "SELECT * FROM kerdesek";
        if ($statment = mysqli_prepare($connection, $query)) { //előkészítés
@@ -824,7 +829,7 @@ function ErtekelesAdat($mit,$mi){
 function ValasztErtekel($mit, $felh_id, $valasz_id, $ertekeles){
     $connection = getConnection();
     if($mit == "Beilleszt"){
-//$felh_id, $valasz_id, $ertekeles, kell majd még egy dátum is.
+    //$felh_id, $valasz_id, $ertekeles, kell majd még egy dátum is.
 
     $query = "INSERT INTO ertekelesek (ertekeles, datum)
     VALUES (?, ?)";
@@ -859,16 +864,21 @@ function ValasztErtekel($mit, $felh_id, $valasz_id, $ertekeles){
         errorPage();
     }
     }
-}
-if($mit == "Töröl"){
+    }
+    if($mit == "Töröl"){
     
-    //ezt most nem tudom, hogy kell megcsinálni
+    //
     $felhasznaloertekelesek = FelhasznaloErtekeles("felhasznalo",$felh_id);
     $ertekelesID = 0;
     foreach($felhasznaloertekelesek as $felhasznaloertekeles){
         //itt kikérem a ertekeles id-t.
-        if(count(ValaszErtekeles("ertekeles", $felhasznaloertekeles["ertekeles_id"]))>0){
-            $ertekelesID = $felhasznaloertekeles["ertekeles_id"];
+        $valaszertekelesek = ValaszErtekeles("ertekeles", $felhasznaloertekeles["ertekeles_id"]);
+        if(count($valaszertekelesek)>0){
+            foreach($valaszertekelesek as $valaszertekeles){
+                if($valaszertekeles["valasz_id"]==$valasz_id){
+                    $ertekelesID = $valaszertekeles["ertekeles_id"];
+                }
+            }
         }
     }
     if($ertekelesID != 0){
@@ -881,14 +891,20 @@ if($mit == "Töröl"){
         errorPage();
     } 
     } 
-}
-if($mit == "Frissít"){
+    }
+    if($mit == "Frissít"){
     $felhasznaloertekelesek = FelhasznaloErtekeles("felhasznalo",$felh_id);
     $ertekelesID = 0;
     foreach($felhasznaloertekelesek as $felhasznaloertekeles){
         //itt kikérem a ertekeles id-t.
-        if(count(ValaszErtekeles("ertekeles", $felhasznaloertekeles["ertekeles_id"]))>0){
-            $ertekelesID = $felhasznaloertekeles["ertekeles_id"];
+
+        $valaszertekelesek = ValaszErtekeles("ertekeles", $felhasznaloertekeles["ertekeles_id"]);
+        if(count($valaszertekelesek)>0){
+            foreach($valaszertekelesek as $valaszertekeles){
+                if($valaszertekeles["valasz_id"]==$valasz_id){
+                    $ertekelesID = $valaszertekeles["ertekeles_id"];
+                }
+            }
         }
     }
     if($ertekelesID != 0){
@@ -901,8 +917,8 @@ if($mit == "Frissít"){
         logMessage("ERROR", 'Query error: ' . mysqli_error($connection));
         errorPage();
     }  
-}
-}
+    }
+    }
 }
 function FelhKerdSzam(){
     $connection = getConnection();
@@ -938,7 +954,7 @@ function KerdValSzam(){
     $connection = getConnection();
     $query = "SELECT count(kv.kerdes_id) as szam, k.kerdesrov as kerdrov, k.id as id FROM kerdesek k
               INNER JOIN kerdes_valasz kv ON k.id = kv.kerdes_id
-              GROUP BY kv.kerdes_id LIMIT 5";
+              GROUP BY kv.kerdes_id LIMIT 5"; //Ne legyen itt Limit5
     if ($statment = mysqli_prepare($connection, $query)) { //előkészítés   
          mysqli_stmt_execute($statment); //végrehajtás
         $result = mysqli_stmt_get_result($statment); //eredménymegszerzés
@@ -948,4 +964,74 @@ function KerdValSzam(){
         errorPage();
         
     } 
+}
+function DatumAtalakit($date){
+    $honaptomb = array("január","február","március","április","május","június","július","augusztus","szeptember","október","november","december");
+    $date = strtotime($date);
+    $akkorimasodperc = date('Y', $date)*365*24*60*60+date('m', $date)*30*24*60*60+date('d', $date)*24*60*60+date('H', $date)*60*60+date('i', $date)*60+date('s', $date)*1;
+    $mostmasodperc = date('Y')*365*24*60*60+date('m')*30*24*60*60+date('d')*24*60*60+date('H')*60*60+date('i')*60+date('s')*1;
+    $kulonbsegperc = ($mostmasodperc - $akkorimasodperc)/60;
+    if(date('Y',$date) != date('Y')) echo date('Y. m. d., H:i',$date);
+    elseif($kulonbsegperc < 1) echo "kevesebb, mint 1perce";
+    elseif($kulonbsegperc < 60) echo (int)$kulonbsegperc . " perce";
+    elseif($kulonbsegperc < 300) echo "kevesebb, mint " . ((int)($kulonbsegperc/60+1)) . " órája";
+    elseif(date('m',$date) == date('m')){ 
+        if(date('d',$date) == date('d')) echo ((int)($kulonbsegperc/60+1)) . " órája";
+        elseif(date('d',$date)+1 == date('d')) echo "tegnap, " . date(' H:i',$date);
+        else echo $honaptomb[(int)(date('m',$date))-1] . " " . (int)(date(' d',$date)) .  date('., H:i',$date);
+    }
+    elseif(date('Y',$date) == date('Y')) echo $honaptomb[(int)(date('m',$date))-1] . " " . (int)(date(' d',$date)) .  date('., H:i',$date);
+    
+}
+function Ertesiteseim($felhasznalonev,$nap){
+    $ma=array();
+    $tegnap=array();
+    $tegnapelott=array();
+    $kerdeseim = FelhasznaloKerdes("felhasznalo",FelhasznaloAdat("felhasznalonev",$felhasznalonev)[0]["id"]);
+    foreach($kerdeseim as $kerdesem){
+        $kerdesvalaszok = KerdesValasz("kerdes",$kerdesem["kerdes_id"]);
+        foreach($kerdesvalaszok as $kerdesvalasz){
+            $kv = $kerdesvalasz["kerdes_id"];
+            if(strpos(ValaszAdat("id",$kerdesvalasz["valasz_id"])[0]["vdatum"], date('Y-m-d')) !== false){
+                if(array_key_exists($kv,$ma)){
+                        $ertek = $ma[$kv];
+                        $ertek++;
+                        $ma[$kv] = $ertek;
+                        }
+                    else{
+                        $ertek=1;
+                        $cserelendoTomb = array($kv=>$ertek);
+                        $ma[$kv] = $ertek;
+                        }
+
+            }
+            if(strpos(ValaszAdat("id",$kerdesvalasz["valasz_id"])[0]["vdatum"], date('Y-m-'). "" . ((int)date('d')-1)) !== false){
+                if(array_key_exists($kv,$tegnap)){
+                    $ertek = $tegnap[$kv];
+                    $ertek++;
+                    $tegnap[$kv] = $ertek;
+                    }
+                else{
+                    $ertek=1;
+                    $cserelendoTomb = array($kv=>$ertek);
+                    $tegnap[$kv] = $ertek;
+                    }
+            }
+            if(strpos(ValaszAdat("id",$kerdesvalasz["valasz_id"])[0]["vdatum"], date('Y-m-'). "" . ((int)date('d')-2)) !== false){
+                if(array_key_exists($kv,$tegnapelott)){
+                    $ertek = $tegnapelott[$kv];
+                    $ertek++;
+                    $tegnapelott[$kv] = $ertek;
+                    }
+                else{
+                    $ertek=1;
+                    $cserelendoTomb = array($kv=>$ertek);
+                    $tegnapelott[$kv] = $ertek;
+                    }
+            }   
+        }
+     }
+     if($nap == "ma")return $ma;
+     elseif($nap == "tegnap")return $tegnap;
+     elseif($nap == "tegnapelott")return $tegnapelott;
 }

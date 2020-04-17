@@ -1,19 +1,9 @@
-<!-- Friss/Hasznos/Válasz nélküli -->
-<div class="egybe">
- <div class="card">
-  <div class="card-body">
-    <button type="button" class="btn btn-primary">Friss</button>
-    <button type="button" class="btn btn-secondary">Hasznos</button>
-    <button type="button" class="btn btn-secondary">Válasz nélküli</button>
-  </div>
-</div>
-<div class="card">
 
+<div class="egybe">
+<div class="card">
 <?php foreach ($content as $kerdes):?>
              <a href="/kerdes/<?=$kerdes['id']?>">
                  <div class="card-body">
-                  
-                 
                   <?php 
                   $kerdesrov = $kerdes['kerdesrov'];
                   if(strlen($kerdesrov)>49) echo "<b>" . substr($kerdesrov,0,47) . "...</b>";
@@ -30,23 +20,15 @@
                         foreach($kapcimke as $cimke){
                           $megkCimke = CimkeAdat("id",$cimke['cimke_id']);
                           echo '<div class="osszesitett" id="cimke"><a href="/cimke/'. $megkCimke[0]['megnevezes'] .'">#' . $megkCimke[0]['megnevezes'] . '</a></div>';
-                          // <?=$megkCimke[0]['megnevezes']</div>
                         }
                   ?>
-                  <br> <div class="osszesitett" id="felhasznalo"><?=FelhasznaloAdat("id",FelhasznaloKerdes("kerdes",$kerdes["id"])[0]["felh_id"])[0]["felhasznalonev"]?></div> <div class="osszesitett float-right" id="valaszok">Válaszok: <?=ValaszSzam($kerdes['id']);?> </div><div class="osszesitett float-right" id="latta">Látta: <?=count(KerdesLatta("kerdes",$kerdes["id"]))?></div>
-                  <!-- 
-                    A látta és a Válaszok résznél meghívni egy/két függvényt
-                    pl.:LattaSzam($connection, $kerdes['id']);
-                    pl.:ValaszSzam($connection, $kerdes['id']);
-                  -->
-                  <div class="osszesitett" id="datum">Beküldve <?=$kerdes['datum']?></div>
+                  <br> <div class="osszesitett" id="felhasznalo"><a href="/profil/<?=FelhasznaloAdat("id",FelhasznaloKerdes("kerdes",$kerdes["id"])[0]["felh_id"])[0]["felhasznalonev"]?>"><?=FelhasznaloAdat("id",FelhasznaloKerdes("kerdes",$kerdes["id"])[0]["felh_id"])[0]["felhasznalonev"]?></a></div> <div class="osszesitett float-right" id="valaszok">Válaszok: <?=ValaszSzam($kerdes['id']);?> </div><div class="osszesitett float-right" id="latta">Látta: <?=count(KerdesLatta("kerdes",$kerdes["id"]))?></div>
+                  <div class="osszesitett" id="datum">Beküldve: <?=DatumAtalakit($kerdes['datum'])?></div>
                   </div>
              </a>
              <hr>
             <?php endforeach ?> 
             
- <?php /*Ezzel is majd kellene valamit kezdeni*/ 
-        require "lapozo.php";
-?>
+ <?php require "lapozo.php"; ?>
 </div>
 </div>

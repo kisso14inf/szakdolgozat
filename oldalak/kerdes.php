@@ -4,8 +4,8 @@
     <div class="card-body">
       <h5><?=$kerdes['kerdesrov']?></h5>
       <?=$kerdes['akerdes']?>
-      <br><b>Kérdező: <div class="osszesitett" id="felhasznalo">
-          <?=FelhasznaloAdat("id",FelhasznaloKerdes("kerdes",$kerdes["id"])[0]["felh_id"])[0]["felhasznalonev"]?></div>
+      <br><b>Kérdező: <div class="osszesitett" id="felhasznalo"><a href="/profil/<?=FelhasznaloAdat("id",FelhasznaloKerdes("kerdes",$kerdes["id"])[0]["felh_id"])[0]["felhasznalonev"]?>">
+          <?=FelhasznaloAdat("id",FelhasznaloKerdes("kerdes",$kerdes["id"])[0]["felh_id"])[0]["felhasznalonev"]?></a></div>
       </b>
       <br>
       <?php $kapcimke = KerdesCimke("kerdes",$kerdes['id']); 
@@ -16,6 +16,7 @@
                         }?>
       <div class="osszesitett float-right" id="valaszok">Válaszok: <?=ValaszSzam($kerdes['id'])?></div>
       <div class="osszesitett float-right" id="latta">Látta: <?=count(KerdesLatta("kerdes",$kerdes["id"]))?></div>
+      <br><div class="osszesitett" id="datum"><?=DatumAtalakit($kerdes['datum'])?></div>
     </div>
     <?php 
         if(isset($_COOKIE["felhasznalonev"])){
@@ -26,7 +27,8 @@
     //A kérdező is tudja értékelni, de csak egyszer
     //Más emberek is tudják értékelni, de ő nem
     //A kérdezőnek az értékelése, valamennyivel többet ér-->
-    <form action="/valaszelkuld" method="post">
+    <?php if(isset($_COOKIE["rang"])): ?>
+    <form action="/valaszelkuld" name="valaszelkuld" method="post">
       <div class="form-group" style="padding:5px;">
         <textarea name="valasz" class="form-control col-sm-15" rows="4" id="comment"
           placeholder="Van egy megoldásod erre a kérdésre? Ne habozz! Válaszolj!"></textarea>
@@ -36,6 +38,7 @@
           id="valaszgomb">Küldés</button>
       </div>
     </form>
+  <?php endif; ?>
     <div class="card-body">
       <?php 
       $KerdeshezValasz = KerdeshezValasz($kerdes['id']);
@@ -46,11 +49,11 @@
         foreach($v as $v2):
           ?>
       <!-- 1 -->
-      <div class="alert alert-secondary" style="padding:0;min-height:100px;overflow:hidden;">
+      <div class="alert alert-secondary" id="kerdesvalasz">
         <!-- 1.1 -->
-        <div style="min-height:100px;display:inline-block;width:80%;float:left;">
+        <div id="valaszbal"><!-- valaszbal -->
           <!-- 1.1.1 -->
-          <div style="width:100%;min-height:65px;padding:5px 0px 0px 10px;">
+          <div style="width:100%;min-height:65px;padding:5px 0px 0px 10px;"> <!-- -->
             <?=$v2["valasz"]?>
             <?php
             $ertek =  0;
@@ -62,29 +65,36 @@
         ?>
           </div> <!-- 1.1.1 lezárója -->
           <!-- 1.1.2 -->
-          <div style="height:35px;padding:0px 0px 5px 10px;">
-            <div class="osszesitett" id="felhasznalo">
-              <?=FelhasznaloAdat("id",FelhasznaloValasz("valasz",$v2["id"])[0]["felh_id"])[0]["felhasznalonev"]?></div>
-            <div class="osszesitett" id="datum"><?=$v2["vdatum"]?></div>
+          <div style="height:40px;padding:5px 0px 5px 10px;">  <!-- -->
+            <div class="osszesitett" id="felhasznalo"><a href="/profil/<?=FelhasznaloAdat("id",FelhasznaloValasz("valasz",$v2["id"])[0]["felh_id"])[0]["felhasznalonev"]?>">
+              <?=FelhasznaloAdat("id",FelhasznaloValasz("valasz",$v2["id"])[0]["felh_id"])[0]["felhasznalonev"]?></a></div>
+            <div class="osszesitett" id="datum"><?=DatumAtalakit($kerdes['datum'])?></div>
           </div> <!-- 1.1.2 lezárója -->
         </div> <!-- 1.1 lezárója -->
         <!-- 1.2 nyitója -->
-        <div style="display:inline-block;width:20%;min-height:100px;float:right;">
-          <div
-            style="background-color: darkgray;padding: 5px;border-radius: 5px; border: 1px solid black;margin:auto;width:80%;margin:auto;">
+       
+        <div id="valaszjobb">
+          <div id="valaszjobbdoboz">
+          <?php if(isset($_COOKIE["felhasznalonev"])): ?>
             <form action="/ertekeles" method="post">
 
               <input type="submit" class="osszesitett btn btn-light" name="hvnh"
-                style="width:100%;text-align:center;border:1px solid lightgray;" value="Hasznos"><br>
-              <div class="osszesitett" id="datum" style="width:100%;text-align:center;"><?=$ertek?></div> <br>
+                id="hasznos" value="Hasznos"><br> 
+              <div class="osszesitett" id="ertek" ><?=$ertek?></div> <br>
               <input type="submit" class="osszesitett btn btn-light" name="hvnh"
-                style="width:100%;text-align:center;border:1px solid lightgray;" value="Nem Hasznos">
+                id="nemhasznos" value="Nem Hasznos"> 
               <input type="hidden" name="valasz_id" value="<?=$v2['id']?>">
               <input type="hidden" name="felh_id"
                 value="<?=FelhasznaloAdat("felhasznalonev", $_COOKIE["felhasznalonev"])[0]["id"]?>">
             </form>
+            <?php else:?> 
+                  <div class="osszesitett btn btn-light" name="hvnh" id="hasznos"><a href="/belepes">Hasznos</a></div><br> 
+                  <div class="osszesitett" id="ertek" ><?=$ertek?></div> <br>
+                  <div class="osszesitett btn btn-light" name="hvnh" id="nemhasznos"><a href="/belepes">Nem hasznos</a></div>
+            <?php endif;?>
           </div>
-        </div> <!-- 1.2 zárója -->
+        </div>
+         <!-- 1.2 zárója -->
         </div> <!-- 1 zárója -->
         <?php
       endforeach; //$v as $v2

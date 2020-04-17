@@ -192,3 +192,112 @@
 
 [Error] 2020-04-09 08:06:48Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
 
+[ERROR] 2020-04-09 07:02:41Query error: 
+[ERROR] 2020-04-09 07:02:49Query error: 
+[Error] 2020-04-10 08:28:20Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
+
+[Error] 2020-04-11 08:30:06Failed to connect to MySQL:Nem hozható létre kapcsolat, mert a célszámítógép már visszautasította a kapcsolatot.
+
+[Error] 2020-04-12 12:13:54Failed to connect to MySQL:Unknown database 'gyakorikerdesek'
+[Error] 2020-04-12 12:13:55Failed to connect to MySQL:Unknown database 'gyakorikerdesek'
+[Error] 2020-04-12 12:13:55Failed to connect to MySQL:Unknown database 'gyakorikerdesek'
+[Error] 2020-04-12 12:13:58Failed to connect to MySQL:Unknown database 'gyakorikerdesek'
+[Error] 2020-04-12 12:13:58Failed to connect to MySQL:Unknown database 'gyakorikerdesek'
+[ERROR] 2020-04-12 12:18:05Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:05Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:08Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:08Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:09Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:09Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:09Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:09Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:09Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:09Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:09Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:09Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:22Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:22Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:23Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:23Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:23Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:23Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:23Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:23Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:23Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:24Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:24Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:24Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:24Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:24Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:24Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:24Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:25Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:25Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:25Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:25Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:25Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:25Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:25Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:25Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:25Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:25Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:26Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:26Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:26Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:26Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:26Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:18:26Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:20:08Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:20:08Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:22:48Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:22:48Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:22:49Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:22:49Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:22:49Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:22:49Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:22:50Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:22:50Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:22:59Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:22:59Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-12 12:23:11Query error: Table 'gyakorikerdesek.kerdesek' doesn't exist in engine
+[ERROR] 2020-04-13 10:11:24Query error: Unknown column 'k.kerdesrov' in 'field list'
+[ERROR] 2020-04-13 10:25:11Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:25:51Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:25:56Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:26:05Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:26:37Query error: Unknown column 'email' in 'where clause'
+[ERROR] 2020-04-13 10:26:46Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:26:54Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:26:56Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:30:44Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:31:11Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:31:12Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:31:24Query error: Unknown column 'email' in 'where clause'
+[ERROR] 2020-04-13 10:31:28Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:31:54Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:32:18Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:32:21Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:38:31Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:38:32Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:38:32Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:38:35Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:38:50Query error: Unknown column 'jelszo' in 'field list'
+[ERROR] 2020-04-13 10:39:22Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:39:24Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:39:27Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:39:28Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:39:29Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:39:40Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:39:48Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:40:02Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:40:06Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 10:40:08Query error: Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'gyakorikerdesek.k.kerdesrov' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[ERROR] 2020-04-13 11:15:27Query error: Table 'gyakorikerdesek.kerdes_latta' doesn't exist
+[ERROR] 2020-04-13 11:15:38Query error: Table 'gyakorikerdesek.kerdes_latta' doesn't exist
+[ERROR] 2020-04-13 11:20:58Query error: 
+[ERROR] 2020-04-13 11:21:35Query error: 
+[ERROR] 2020-04-13 13:12:05Query error: Query was empty
+[ERROR] 2020-04-13 13:14:35Query error: Query was empty
+[ERROR] 2020-04-16 11:14:51Query error: Query was empty
+[ERROR] 2020-04-16 11:15:10Query error: Query was empty
+[ERROR] 2020-04-17 09:00:51Query error: 

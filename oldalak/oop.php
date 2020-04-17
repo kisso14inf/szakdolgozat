@@ -1,5 +1,6 @@
 <?php 
 $url = "$_SERVER[REQUEST_URI]";
+
 if($url == "/belepteto"){
    if(isset(BelepesEllenorzes($connection, $felhasznalonev, $jelszo)["felhasznalonev"])){
    $felhasznalonev1 = BelepesEllenorzes($connection, $felhasznalonev, $jelszo)["felhasznalonev"];
@@ -7,7 +8,7 @@ if($url == "/belepteto"){
    if(isset(BelepesEllenorzes($connection, $felhasznalonev, $jelszo)["jelszo"])){
    $jelszo1 = BelepesEllenorzes($connection, $felhasznalonev, $jelszo)["jelszo"];
    
-   //itt valahogy a rangot is ki kéne nyerni
+   //
    if(isset(BelepesEllenorzes($connection, $felhasznalonev, $jelszo)["id"])){
    $id1 = BelepesEllenorzes($connection, $felhasznalonev, $jelszo)["id"];
    $rang1 = RangVisszaAdd($connection, $id1)[0]["megnevezes"];
@@ -16,9 +17,6 @@ if($url == "/belepteto"){
    setcookie("jelszo", $jelszo1, time()+3600);
 
     }}}
-   //Itt hibát ír ki, ha nincs ilyen felhasználó vagy jelszó
-  
-   
 }
 elseif($url == "/kijelentkezes"){
     if(isset($_COOKIE["rang"])){$rang1 = $_COOKIE["rang"];
@@ -29,10 +27,26 @@ elseif($url == "/kijelentkezes"){
     setcookie("jelszo", $jelszo1, time()-3600);
     }}}
     //Itt hibát ír ki, ha nincs ilyen felhasználó vagy jelszó
-    header( "Refresh:2; url=/", true, 303);
+    header( "Refresh:1.5; url=/", true, 303);
     
- }
-
+}
+elseif($url == "/profil"){
+    if(isset($_COOKIE["felhasznalonev"]))
+    header( "Refresh:0; url=/profil/{$_COOKIE['felhasznalonev']}", true, 303);
+}
+/*elseif(substr($url,0,9)=="/kereses/"){
+   $Igaz = "";
+   $Friss = (substr($url,strlen($url)-strlen("/Friss"),strlen("/Friss"))=="/Friss");
+   $ValaszNelkul =  (substr($url,strlen($url)-strlen("/Válasz_nélkül"),strlen("/Válasz_nélkül"))=="/Válasz_nélkül");
+   $Hasznos =  (substr($url,strlen($url)-strlen("/Hasznos"),strlen("/Hasznos"))=="/Hasznos");
+   if($Friss) $Igaz = "/Friss";
+   elseif($ValaszNelkul)$Igaz = "/Válasz_nélkül";
+   elseif($Hasznos)$Igaz = "/Hasznos";
+   if($Igaz == ""){header( "Refresh:0; url=/kereses/{$keresendo}/Friss", true, 303);}
+    //Vannak még itt hibák
+    //$url-ből ki kell venni a /kereses/-t és az utolsó karaktereket is /Friss / 
+    //after ('@', 'biohazard@online.ge'); -> online.ge
+}*/
 //eddig minden szipi szuper, így közös a cél
 $proba = "Látogató";
 if(isset($_COOKIE["felhasznalonev"]) && isset($_COOKIE["jelszo"])) $proba = $_COOKIE["rang"];
@@ -58,9 +72,9 @@ class Mindenki {
         <span class="badge badge-primary badge-pill">12</span>
         </li>';
     }*/
-       
+    //egy li-t 3 részre kell osztani
     private $balsav1 = '<li class="list-group-item d-flex justify-content-between align-items-center">
-    <a href="/kerdesek/Osszes">Kérdések</a>
+    <a href="/kereses/_/Friss">Kérdések</a>
     <span class="badge badge-primary badge-pill">K</span>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -72,14 +86,15 @@ class Mindenki {
     <span class="badge badge-primary badge-pill">C</span>
     </li>
     ';
-    
+    private $sav = "";
 	public function setBalsav1($balsav1) {
 		$this->balsav1 = $balsav1;
        
 	}
 	public function getBalsav1() {
 		return $this->balsav1;
-	}
+    }
+    
     private $menusav1 = '<a href="/belepes"><button type="button" class="btn btn-outline-secondary">Belépés</button></a>';
     public function setMenusav1($menusav1) {
 		$this->menusav1 = $menusav1;
@@ -96,22 +111,43 @@ class Latogato extends Mindenki{}
 class Tag extends Mindenki {
     //Ezeket, majd le akarom egyszerűsíteni
     //adatok
-    
+    /*private $balsav2 = array(
+        '<li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="/profil">Profil</a>
+        <span class="badge badge-primary badge-pill">P</span>
+        </li>',
+        '<li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="/ertesitesek">Értesítések</a>
+        <span class="badge badge-primary badge-pill">12</span>
+        </li> ',
+        '<li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="/kerdeseim">Kérdéseim</a>
+        <span class="badge badge-primary badge-pill"></span>
+        </li> ',
+        '<li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="/valaszaim">Válaszaim</a>
+        <span class="badge badge-primary badge-pill">12</span>
+        </li>',
+        '<li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="/ujkerdes">Új Kérdés</a>
+        <span class="badge badge-primary badge-pill">+</span>
+        </li>',
+    );*/
 	private $balsav2 = '<li class="list-group-item d-flex justify-content-between align-items-center">
     <a href="/profil">Profil</a>
     <span class="badge badge-primary badge-pill">P</span>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
     <a href="/ertesitesek">Értesítések</a>
-    <span class="badge badge-primary badge-pill">12</span>
+    <span class="badge badge-primary badge-pill">É</span>
     </li> 
     <li class="list-group-item d-flex justify-content-between align-items-center">
     <a href="/kerdeseim">Kérdéseim</a>
-    <span class="badge badge-primary badge-pill"></span>
+    <span class="badge badge-primary badge-pill">K</span>
     </li> 
     <li class="list-group-item d-flex justify-content-between align-items-center">
     <a href="/valaszaim">Válaszaim</a>
-    <span class="badge badge-primary badge-pill">12</span>
+    <span class="badge badge-primary badge-pill">V</span>
     </li>
     <li class="list-group-item d-flex justify-content-between align-items-center">
     <a href="/ujkerdes">Új Kérdés</a>

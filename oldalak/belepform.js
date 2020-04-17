@@ -9,7 +9,6 @@ $(document).ready(function(){
       // on the right side
       
       felhasznalonev: "required",
-      
       felhasznalonev:{
           required: true,
       },

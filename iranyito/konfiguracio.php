@@ -28,10 +28,12 @@ $routes['GET']['/rolunk'] = 'RolunkController';
 $routes['GET']['/cimke/(?<keresendo>[A-Za-z\P{L}]+)'] = 'CimkeController';
 $routes['GET']['/temak'] = 'temakController';
 $routes['GET']['/kerdes/(?<id>[\d]+)'] = 'egyKerdesController';
-$routes['GET']['/kereses/(?<keresendo>[A-Za-z0-9\_\P{L}]+)'] = 'keresesController';
+$routes['GET']['/kereses/(?<keresendo>[A-Za-z0-9\_\P{L}]+)(?<rendezo>[\/]{1}[A-Za-z0-9\_\P{L}]+)'] = 'keresesController';
 $routes['GET']['/proba'] = 'ProbaController';
 $routes['GET']['/formfeldolgoz'] = 'FormFeldolgozController';
 $routes['GET']['/info'] = 'InfoController';
+$routes['GET']['/tagok'] = 'TagokController';
+$routes['GET']['/profil/(?<felhasznalonev>[A-Za-z0-9]+)'] = 'ProfilController';
 //Ha nincs rangja
   //Itt lehet a bejelentkezés rész is 
 //Ha van rangja
@@ -42,7 +44,7 @@ if(isset($_COOKIE["rang"])){
     $routes['POST']['/ujkerdes/elkuld'] = 'ujKerdesElkuldController';
     $routes['POST']['/valaszelkuld'] = 'ValaszElkuldController';
     $routes['POST']['/ertekeles'] = 'ErtekelesController';
-    $routes['GET']['/profil'] = 'ProfilController';
+    
     $routes['GET']['/ertesitesek'] = 'ErtesitesekController';
     $routes['GET']['/kerdeseim'] = 'KerdeseimController';
     $routes['GET']['/valaszaim'] = 'ValaszaimController';

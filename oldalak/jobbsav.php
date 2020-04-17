@@ -1,7 +1,7 @@
-<div class="jobbsav">
+<div id="jobbsav">
     
     <div class="card">
-    <div class="card-body">
+    <div class="card-body" style="margin:auto;">
    <h4>Statisztika:</h4> <br>
     Kérdések száma 
     <div class="osszesitett" id="statisztikaszam"><?=count(KerdesAdat("",""))?></div> <br>
@@ -15,7 +15,7 @@
     <?php 
     $legtobbvalaszok = KerdValSzam();
     foreach($legtobbvalaszok as $legtobbvalasz){?>
-       <a href="/kerdes/<?=$legtobbvalasz["id"]?>"> <div class="osszesitett" id="felhasznalo"><?=$legtobbvalasz["kerdrov"]?></div> <?=$legtobbvalasz["szam"]?> válasz</a> <br>
+       <a href="/kerdes/<?=$legtobbvalasz["id"]?>"> <div class="osszesitett" id="felhasznalo" style="max-width:100%;"><?=$legtobbvalasz["kerdrov"]?></div> <?=$legtobbvalasz["szam"]?> válasz</a> <br>
     <?php } 
         for($i=0;$i<5-count($legtobbvalaszok);$i++){
     ?>
@@ -24,13 +24,11 @@
     Erre még nem válaszoltak<br>
     <?php 
         $kerdesek = KerdesAdat("","");
-        //maximum 5öt írjon ki
         $max5 = 0;
         foreach($kerdesek as $kerdes):
-            if(count(KerdesValasz("kerdes",$kerdes["id"]))==0){
-             if($max5<=5){?>
-                <a href="/kerdes/<?=$kerdes["id"]?>"><div class="osszesitett" id="valasz"><?=$kerdes["kerdesrov"]?></div></a>
-             <?php } } endforeach; 
+            if(count(KerdesValasz("kerdes",$kerdes["id"]))==0 && $max5<5){?>
+             <a href="/kerdes/<?=$kerdes["id"]?>"><div class="osszesitett" id="valasz" style="max-width:100%;"><?=$kerdes["kerdesrov"]?></div></a> <br>
+             <?php  $max5++; } endforeach; 
              for($i=0;$i<5-$max5;$i++){ ?>
                 <a href="/info"><div class="osszesitett" id="urescella">Üres cella</div></a> <br>
         <?php } ?>
@@ -39,40 +37,39 @@
     <?php 
     $legtobbkerdesek = FelhKerdSzam();
     foreach($legtobbkerdesek as $legtobbkerdes){?>
-        <div class="osszesitett" id="felhasznalo"><?=$legtobbkerdes["felh"]?></div> <?=$legtobbkerdes["szam"]?> kérdés <br>
+        <div class="osszesitett" id="felhasznalo"><a href="/profil/<?=$legtobbkerdes["felh"]?>"><?=$legtobbkerdes["felh"]?></a></div> <?=$legtobbkerdes["szam"]?> kérdés <br>
     <?php }
     for($i=0;$i<5-count($legtobbkerdesek);$i++){ ?>
     <a href="/info"><div class="osszesitett" id="urescella">Üres cella</div></a> <br>
         <?php } ?>
     Legaktívabb válaszolók<br>
     <?php 
+    /*A legtöbb válaszokkal rendelkező felhasználókat íratom ki */
+    //Max 5öt --> Ha akarok többet, ezért a LIMIT 5 lekerüljön
     $legtobbkerdesek = FelhValSzam();
     foreach($legtobbkerdesek as $legtobbkerdes){?>
-        <div class="osszesitett" id="felhasznalo"><?=$legtobbkerdes["felh"]?></div> <?=$legtobbkerdes["szam"]?> válasz <br>
+        <div class="osszesitett" id="felhasznalo"><a href="/profil/<?=$legtobbkerdes["felh"]?>"><?=$legtobbkerdes["felh"]?></a></div> <?=$legtobbkerdes["szam"]?> válasz <br>
     <?php } 
     for($i=0;$i<5-count($legtobbkerdesek);$i++){ ?>
     <a href="/info"><div class="osszesitett" id="urescella">Üres cella</div></a> <br>
         <?php } ?>
+    
     A legújabb tagok<br>
     <?php 
+        /*Ezzel kilistázom a felhasználókat, majd az array_reverse segítségével megfordítom, így a legújabb tagokkal 
+        kezdődik a foreach ciklus, és ebből maximum az első 5öt veszem ki.*/
         $tagok = FelhasznaloAdat("","");
-        //maximum 5öt írjon ki
-        if(count($tagok)>=5):
-           for($i=count($tagok)-1;$i>count($tagok)-6;$i--): ?>
-           <div class="osszesitett" id="felhasznalo"><?=FelhasznaloAdat("","")[$i]["felhasznalonev"]?></div>  <br>
-           <?php endfor; 
-        else:
-           if(count($tagok)>0):
-           for($i=count($tagok)-1;$i>=0;$i--): ?>
-           <div class="osszesitett" id="felhasznalo"><?=FelhasznaloAdat("","")[$i]["felhasznalonev"]?></div>  <br>
-    <?php  endfor;
-           endif;
-        endif;
-        if(count($tagok) <5){
-        for($i=0;$i<5-count($tagok);$i++){
-            ?>
+        $szamol = 0;
+        foreach(array_reverse($tagok) as $tag){
+            if($szamol<5){?>
+            <div class="osszesitett" id="felhasznalo"><a href="/profil/<?=$tag["felhasznalonev"]?>"><?=$tag["felhasznalonev"]?></a></div>  <br>
+            <?php $szamol++;
+            }
+        } 
+        if($szamol <5){
+        for($i=0;$i<5-$szamol;$i++){?>
             <a href="/info"><div class="osszesitett" id="urescella">Üres cella</div></a> <br>
-                <?php } }?>
+        <?php } }?>
 </div>
 </div>
 </div>

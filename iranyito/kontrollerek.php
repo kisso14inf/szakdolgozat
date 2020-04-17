@@ -210,11 +210,12 @@ function RolunkController(){
         ]
     ];
 }
-function ProfilController(){
+function ProfilController($params){
     return[
         'profil',
         [
-            'title' => 'Profil'
+            'title' => 'Profil',
+            'felhasznalonev' => $params["felhasznalonev"]
         ]
     ];
 }
@@ -223,7 +224,8 @@ function keresesController($params){
         'kereses',
         [
             'title' => 'Keresés',
-            'keresendo' => $params["keresendo"]
+            'keresendo' => $params["keresendo"],
+            'rendezo' =>  $params["rendezo"]
         ]
     ];
 }
@@ -291,6 +293,13 @@ function InfoController(){
     return [
         'info',
         ['title' => 'Információk'
+        ]
+    ];
+}
+function TagokController(){
+    return [
+        'tagok',
+        ['title' => 'Tagok'
         ]
     ];
 }

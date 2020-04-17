@@ -21,9 +21,13 @@ if((BelepesEllenorzes($connection, $felhasznalonev, $jelszo)) != null){
 <div class="card-body">
 
 Sikeres Bejelentkezés!
-<!-- Itt megkéne adni egy függvényt, vagy mi a 
-Faszomat ami, cookie-t ad ennek a mocsoknak.
--->
+<script type="text/javascript">
+setTimeout(myFunction, 500);
+function myFunction() {
+  alert('Sikeres bejelentkezés.');
+  window.location = '/';
+}
+</script>
 </div>
 </div>
 </div>

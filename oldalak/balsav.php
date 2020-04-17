@@ -1,3 +1,4 @@
+<div id="balsav">
 <ul class="list-group" >
 <!-- Ezt úgy kell megoldani, hogy foreacheljem ezt
  És csak azt adja ki, amihez az adott embernek jogosúltsága
@@ -13,3 +14,4 @@
     
   
 </ul>
+</div>

@@ -26,11 +26,20 @@ if($keresendo == "Összes" || count(KerdesCimke("cimke",CimkeAdat("megnevezes",$
        echo count(KerdesCimke("cimke",CimkeAdat("megnevezes",$keresendo)[0]["id"])); 
        endif;?>db)</h5> 
 <?php
-if($keresendo == "Összes"){$kerdesek = KerdesCimke("","");}
+if($keresendo == "Összes"){
+  $kerdesek = KerdesCimke("","");
+/*$kerdesek =  array();
+$KerdesCimkek = KerdesCimke("","");
+foreach($KerdesCimkek as $KerdesCimke){
+  if(!in_array($KerdesCimke["kerdes_id"],$kerdesek)){
+      array_push($kerdesek,$KerdesCimke);
+  }
+}*/
+}
 else{
 $cimkeID = CimkeAdat("megnevezes",$keresendo)[0]["id"];
 $kerdesek = KerdesCimke("cimke",$cimkeID);}
-foreach($kerdesek as $kerdes){?>
+foreach(array_reverse($kerdesek) as $kerdes){?>
 <a href="/kerdes/<?=$kerdes['kerdes_id']?>">
                  <div class="card-body">
                   <?php 
@@ -51,8 +60,8 @@ foreach($kerdesek as $kerdes){?>
                           echo '<div class="osszesitett" id="cimke"><a href="/cimke/'. $megkCimke[0]['megnevezes'] .'">#' . $megkCimke[0]['megnevezes'] . '</a></div>';
                         }
                   ?>
-                  <br> <div class="osszesitett" id="felhasznalo"><?=FelhasznaloAdat("id",FelhasznaloKerdes("kerdes",$kerdes["kerdes_id"])[0]["felh_id"])[0]["felhasznalonev"]?></div> <div class="osszesitett float-right" id="valaszok">Válaszok: <?=ValaszSzam($kerdes['kerdes_id']);?> </div><div class="osszesitett float-right" id="latta">Látta: <?=count(KerdesLatta("kerdes",$kerdes["kerdes_id"]))?></div>
-                  <div class="osszesitett" id="datum">Beküldve <?=KerdesAdat("id",$kerdes['kerdes_id'])[0]['datum']?></div>
+                  <br> <div class="osszesitett" id="felhasznalo"><a href="/profil/<?=FelhasznaloAdat("id",FelhasznaloKerdes("kerdes",$kerdes["kerdes_id"])[0]["felh_id"])[0]["felhasznalonev"]?>"><?=FelhasznaloAdat("id",FelhasznaloKerdes("kerdes",$kerdes["kerdes_id"])[0]["felh_id"])[0]["felhasznalonev"]?></a></div> <div class="osszesitett float-right" id="valaszok">Válaszok: <?=ValaszSzam($kerdes['kerdes_id']);?> </div><div class="osszesitett float-right" id="latta">Látta: <?=count(KerdesLatta("kerdes",$kerdes["kerdes_id"]))?></div>
+                  <div class="osszesitett" id="datum">Beküldve: <?=DatumAtalakit(KerdesAdat("id",$kerdes['kerdes_id'])[0]['datum'])?></div>
                   </div>
              </a>
              <hr>

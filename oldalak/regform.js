@@ -1,12 +1,9 @@
  <script>
 $(document).ready(function(){
-  
+    //A regisztráció input-jaihoz hozzákapcsolt szabályok
     $("form[name='regisztracio']").validate({
-    // Specify validation rules
     rules: {
-      // The key name on the left side is the name attribute
-      // of an input field. Validation rules are defined
-      // on the right side
+      
       email: "required",
       felhasznalonev: "required",
       email: {
@@ -15,9 +12,13 @@ $(document).ready(function(){
       },
       felhasznalonev:{
           required: true,
+          alphanumeric: true,
+          minlength: 3,
+          maxlength: 18
       },
       jelszo: {
         required: true,
+        alphanumeric: true,
         minlength: 5,
         maxlength: 25
         
@@ -26,22 +27,27 @@ $(document).ready(function(){
       equalTo: "#jelszo",
     }  
     },
-    // Specify validation error messages
+    //hiba üzenetek
     messages: {
       email: "Kérlek töltsd ki, az email mezőt",
-      felhasznalonev: "A felhasználónév mezőt üresen hagytad",
+      felhasznalonev: {
+        required: "A felhasználónév mezőt üresen hagytad",
+        alphanumeric: "A felhasználóneved nem tartalmazhat speciális karaktereket",
+        minlength: "A felhasználónevednek minimum 3 karakternek kell lennie",
+        maxlength: "A felhasználónevednek maximum 18 karakternek szabad lennie"
+      },
       jelszo: {
         required: "Jelszó nélkül sehol sem tudsz regisztrálni...",
+        alphanumeric: "A jelszavad nem tartalmazhat speciális karaktereket",
         minlength: "A jelszavadnak minimum 5 karakternek kell lennie",
         maxlength: "A jelszavadnak max 25 karakternek szabad lennie"
       },
       jelszo_megegyszer: {
-        equalTo: "Nem ugyan azt írtad be a jelszavaidhoz BRO"  
+        equalTo: "A két jelszó nem egyezik"  
       },
       email: "Nem is ez az email címed... Töltsd ki rendesen"
     },
-    // Make sure the form is submitted to the destination defined
-    // in the "action" attribute of the form when valid
+    //Csak akkor enged tovább, ha mindegyik szabálynak megfelelt.
     submitHandler: function(form) {
       form.submit();
     }

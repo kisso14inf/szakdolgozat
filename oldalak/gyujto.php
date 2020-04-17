@@ -14,7 +14,6 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-
     
 </head>
 <style>
@@ -27,20 +26,24 @@
 <body>
     <?php //itt daraboltuk fel a layoutot
         require_once "menusav.php";
+    ?>
+    <div id="container">
+    <?php  
         require_once "balsav.php";
-        //ezzel kéne itt valamit csinálni
         require_once "$view.php"; 
         require_once "jobbsav.php";
-        //require_once "lablec.php";
-        
+    ?>
+    </div>
+    <?php
         //Ha scriptként teszem be
         //úgy nem működik ez
-        require_once "regform.js";
+        //require_once "regform.js";
         require_once "belepform.js";
         require_once "ukcimkek.js";
         require_once "ujkerdesform.js";
+        require_once "valaszelkuld.js";
     ?>
     
-
 </body>
+<script src="regform.js"></script>
 </html>
