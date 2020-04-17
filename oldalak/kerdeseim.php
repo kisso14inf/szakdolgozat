@@ -15,9 +15,6 @@ foreach($kerdesIDk as $kerdesID):
 ?>
 <a href="/kerdes/<?=$kerdesid?>">
     <div class="card-body">
-   
-                  
-    <a class="btn btn-danger float-right">Törlés</a>
      <?php 
      if(strlen($kerdesrov)>49) echo "<b>" . substr($kerdesrov,0,47) . "...</b>";
      else{ echo "<b>" . $kerdesrov . "</b>";}
@@ -39,8 +36,6 @@ foreach($kerdesIDk as $kerdesID):
      <div class="osszesitett float-right" id="latta">Látta: <?=count(KerdesLatta("kerdes",$kerdesid))?></div>
      <br>
      <div class="osszesitett" id="datum">Beküldve <?=$datum?></div>
-     
-     Itt majd hozzon be egy alert-et
      </div>
 </a>
 <hr>

@@ -14,7 +14,6 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-    
 </head>
 <style>
 <?php
@@ -37,7 +36,7 @@
     <?php
         //Ha scriptként teszem be
         //úgy nem működik ez
-        //require_once "regform.js";
+        require_once "regform.js";
         require_once "belepform.js";
         require_once "ukcimkek.js";
         require_once "ujkerdesform.js";
@@ -45,5 +44,4 @@
     ?>
     
 </body>
-<script src="regform.js"></script>
 </html>

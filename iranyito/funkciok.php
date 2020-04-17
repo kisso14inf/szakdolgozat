@@ -281,11 +281,9 @@ function RegisztracioEllenorzes($connection, $email, $felhasznalonev){
     return $szam;
 }
 function BelepesEllenorzes($connection, $felhasznalonev, $jelszo){
-    //itt ellenőrzöm ezt a faszomat
     //Ellenőrzi, hogy van-e ilyen felhasználó már
     //Ha van, akkor vissza adja a számát, és ezért egy while ciklussal csinálom,
     //hogy ne fusson tovább feleslegesen
-    
     $query = "SELECT * FROM felhasznalok WHERE  felhasznalonev = ?";
     if ($statment = mysqli_prepare($connection, $query)) { //előkészítés
         mysqli_stmt_bind_param($statment, "s", $felhasznalonev); // itt kerül behelyettesítésre a kérdőjelek helyére a változó ii- integer and integer
@@ -301,12 +299,6 @@ function BelepesEllenorzes($connection, $felhasznalonev, $jelszo){
     
 }
 function adatLeKeres($connection, $parameter_id){
-    //Egy faszom SELECT-et ide a picsába beilleszteni
-    //na itt visszaadom az id-t
-    //A kérdés címét
-    //A kérdés szövegét
-    //A kérdés dátumát
-    //A felhasználót is, aki feltette
     $query = "SELECT * FROM kerdesek WHERE id = ?";
     if ($statment = mysqli_prepare($connection, $query)) { //előkészítés
         mysqli_stmt_bind_param($statment, "i", $parameter_id); // itt kerül behelyettesítésre a kérdőjelek helyére a változó ii- integer and integer
@@ -340,7 +332,6 @@ function RangVisszaAdd($connection, $id){
         logMessage("ERROR", 'Query error: ' . mysqli_error($connection));
         errorPage();
     }
-    //mi a faszomért nem jó ez
     
     if(isset($talalat[0]["rang_id"])){
     $rangid = $talalat[0]["rang_id"];
@@ -438,14 +429,6 @@ function ValaszIDhezAdat($id){
        }
 }
 function UjKerdesElkuld($kerdesrov, $akerdes, $felh_id, $cimkek){
-    //A "kerdesek"-be bele kell tenni:
-    //kerdesrov, akerdes, datum
-    //A "felhasznalo_kerdes"-be bele kell tenni:
-    //kerdes_id, felhasznalo_id
-    //A "kerdes_cimke"-be bele kell tenni:
-    //kerdes_id, cimke_id
-    //EZ IS KICSIT NEHÉZKES LESZ
-    //LEHET ARRAY-VEL KÖNNYEBB LESZ
     $connection = getConnection();
     $query = "INSERT INTO kerdesek (kerdesrov, akerdes, datum)
     VALUES (?, ?, ?)";
@@ -513,14 +496,7 @@ function UjKerdesElkuld($kerdesrov, $akerdes, $felh_id, $cimkek){
     }
     </script>';
 } 
-//mindegyik adatbázis táblához kellene egy FUNCTION-t csinálni.
-//És akkor külön azt is bekérni, hogy mi alapján kérek , vagy ha van bejövő érték, és mi, akkor azt adja vissza.
-/**
- *  function Felhasznalok($mit, $mi){
- *   //$mi -> Egy feltétel, amihez csatlakozó adatokat SELECTelem.
- *   //$mit -> 
- *  }
- */
+
 function MostLattaAKerdestAFelhasznalo($kerdes_id,$felhasznalo_id){
     $connection = getConnection();
     $query = "INSERT INTO lattak (datum)
@@ -965,6 +941,9 @@ function KerdValSzam(){
         
     } 
 }
+/**
+ * A kapott dátum átalakítása egy tetszetősebb formában
+ */
 function DatumAtalakit($date){
     $honaptomb = array("január","február","március","április","május","június","július","augusztus","szeptember","október","november","december");
     $date = strtotime($date);
@@ -983,6 +962,10 @@ function DatumAtalakit($date){
     elseif(date('Y',$date) == date('Y')) echo $honaptomb[(int)(date('m',$date))-1] . " " . (int)(date(' d',$date)) .  date('., H:i',$date);
     
 }
+/**
+ * Itt az adott ember, az a kérdéseire az adott napi válaszait kapja vissza
+ * 3napra lehetséges visszaadni. (Ma,tegnap,tegnapelőtt)
+ */
 function Ertesiteseim($felhasznalonev,$nap){
     $ma=array();
     $tegnap=array();

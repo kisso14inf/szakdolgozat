@@ -26,7 +26,6 @@ elseif($url == "/kijelentkezes"){
     setcookie("felhasznalonev", $felhasznalonev1, time()-3600);
     setcookie("jelszo", $jelszo1, time()-3600);
     }}}
-    //Itt hibát ír ki, ha nincs ilyen felhasználó vagy jelszó
     header( "Refresh:1.5; url=/", true, 303);
     
 }
@@ -34,45 +33,9 @@ elseif($url == "/profil"){
     if(isset($_COOKIE["felhasznalonev"]))
     header( "Refresh:0; url=/profil/{$_COOKIE['felhasznalonev']}", true, 303);
 }
-/*elseif(substr($url,0,9)=="/kereses/"){
-   $Igaz = "";
-   $Friss = (substr($url,strlen($url)-strlen("/Friss"),strlen("/Friss"))=="/Friss");
-   $ValaszNelkul =  (substr($url,strlen($url)-strlen("/Válasz_nélkül"),strlen("/Válasz_nélkül"))=="/Válasz_nélkül");
-   $Hasznos =  (substr($url,strlen($url)-strlen("/Hasznos"),strlen("/Hasznos"))=="/Hasznos");
-   if($Friss) $Igaz = "/Friss";
-   elseif($ValaszNelkul)$Igaz = "/Válasz_nélkül";
-   elseif($Hasznos)$Igaz = "/Hasznos";
-   if($Igaz == ""){header( "Refresh:0; url=/kereses/{$keresendo}/Friss", true, 303);}
-    //Vannak még itt hibák
-    //$url-ből ki kell venni a /kereses/-t és az utolsó karaktereket is /Friss / 
-    //after ('@', 'biohazard@online.ge'); -> online.ge
-}*/
-//eddig minden szipi szuper, így közös a cél
 $proba = "Látogató";
 if(isset($_COOKIE["felhasznalonev"]) && isset($_COOKIE["jelszo"])) $proba = $_COOKIE["rang"];
-//Azt amúgy meg kéne csinálni, hogy ha az Adott illető nem
-//Mindenki, hanem egy feljebb lévő akárki, akkor ne tudja elérni a /belepes-t és A /regisztracio-t
 class Mindenki {
-	//private $balsav1 = MindenkiBalsav();
-	//balsav osztaly
-    //Mindenki rész tartalmazza:
-    //Ezt leegyszerűsítem, és ennyi lesz most mára
-    //Hát ez most nem ment, majd holnap
-    /*private $balsavTomb = 
-        array("Kérdések" => "/kerdesek",
-              "Tagok"=>"/tagok",
-              "Címkék"=>"/cimkek"
-             );*/
-    /*private $balsav1 = '';
-    
-     for($i = 0;$i<5;$i++)
-    {
-        $balsav1+='<li class="list-group-item d-flex justify-content-between align-items-center">
-        <a href="Buzi">Kérdések</a>
-        <span class="badge badge-primary badge-pill">12</span>
-        </li>';
-    }*/
-    //egy li-t 3 részre kell osztani
     private $balsav1 = '<li class="list-group-item d-flex justify-content-between align-items-center">
     <a href="/kereses/_/Friss">Kérdések</a>
     <span class="badge badge-primary badge-pill">K</span>
@@ -109,30 +72,6 @@ class Latogato extends Mindenki{}
 //Mindenki, Tag, Admin
 //child class
 class Tag extends Mindenki {
-    //Ezeket, majd le akarom egyszerűsíteni
-    //adatok
-    /*private $balsav2 = array(
-        '<li class="list-group-item d-flex justify-content-between align-items-center">
-        <a href="/profil">Profil</a>
-        <span class="badge badge-primary badge-pill">P</span>
-        </li>',
-        '<li class="list-group-item d-flex justify-content-between align-items-center">
-        <a href="/ertesitesek">Értesítések</a>
-        <span class="badge badge-primary badge-pill">12</span>
-        </li> ',
-        '<li class="list-group-item d-flex justify-content-between align-items-center">
-        <a href="/kerdeseim">Kérdéseim</a>
-        <span class="badge badge-primary badge-pill"></span>
-        </li> ',
-        '<li class="list-group-item d-flex justify-content-between align-items-center">
-        <a href="/valaszaim">Válaszaim</a>
-        <span class="badge badge-primary badge-pill">12</span>
-        </li>',
-        '<li class="list-group-item d-flex justify-content-between align-items-center">
-        <a href="/ujkerdes">Új Kérdés</a>
-        <span class="badge badge-primary badge-pill">+</span>
-        </li>',
-    );*/
 	private $balsav2 = '<li class="list-group-item d-flex justify-content-between align-items-center">
     <a href="/profil">Profil</a>
     <span class="badge badge-primary badge-pill">P</span>
@@ -171,8 +110,6 @@ class Tag extends Mindenki {
     //private menusav2... Ha tag, akkor Kilépés lesz helyette
 }
 //Ennek, nem tudom még, hogy milyen plusz funkciói lesznek, majd kiderül
-//ezeket leegyszerűsítem, majd kicsit hanyagolom az oop-t
-//annyira amúgy nem nehéz
 class Admin extends Tag
 {
     
@@ -206,12 +143,4 @@ $obj = new Admin();
 $balsav = array($obj->getBalsav2(), $obj->getBalsav3());
 $menusav = array($obj->getMenusav2());
 }
-//Mindenki BALSÁV
-/* Kérdések, Tagok, Címkék */
-//Tag BALSÁV
-/* Profil, Értesítések, Kérdéseim, Válaszaim, Új kérdés */
-//Admin BALSÁV
-/* MINDENKI -> Kérdések, Tagok, Címkék */
-/* TAG -> Profil, Értesítések, Kérdéseim, Válaszaim, Új kérdés */
-
 ?>

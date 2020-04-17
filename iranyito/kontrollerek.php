@@ -58,7 +58,7 @@ function homeController() {
     return [
         'fooldal',
         [
-            //Ezel azok, mármint szerintem, amit POST fügvénnyel átadok a gecibe
+            //Ezel azok, mármint szerintem, amit POST fügvénnyel átadok
             'title' => 'Home page',
             'content' => $content,
             'total' => $total,
@@ -71,7 +71,6 @@ function homeController() {
 
 function egyKerdesController($params){
     $connection = getConnection();
-    //itt meghívom a faszomat
     $kerdeshezTartozo = adatLeKeres($connection,$params['id']);
     
     return [
@@ -303,18 +302,4 @@ function TagokController(){
         ]
     ];
 }
-function ProbaController(){
-    return [
-        'proba',
-        ['title' => 'Próba'
-        ]
-    ];
-}
-function FormFeldolgozController(){
-    return[
-        'formfeldolgoz',
-        [
-            'title' => 'formfeldolgoz'
-        ]
-        ];
-}
+
