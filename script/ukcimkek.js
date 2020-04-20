@@ -1,4 +1,4 @@
-<script>
+
 var tomb = [];
 var inputTomb = ["#0","#1","#2","#3","#4"];
 var inputTorol = ["#torol0","#torol1","#torol2","#torol3","#torol4"];
@@ -142,4 +142,3 @@ $(document).ready(function(){
   })
  
 })
-</script>

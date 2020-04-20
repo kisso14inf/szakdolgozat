@@ -1,4 +1,3 @@
-<script>
 $(document).ready(function(){
     $("form[name='valaszelkuld']").validate({
     // Specify validation rules
@@ -23,4 +22,3 @@ $(document).ready(function(){
     }
   })
 })
-</script>

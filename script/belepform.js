@@ -1,4 +1,4 @@
- <script>
+
 $(document).ready(function(){
   
     $("form[name='bejelentkezes']").validate({
@@ -36,4 +36,3 @@ $(document).ready(function(){
     }
   })
 })
-</script>

@@ -1,4 +1,3 @@
- <script>
 $(document).ready(function(){
     //A regisztráció input-jaihoz hozzákapcsolt szabályok
     $("form[name='regisztracio']").validate({
@@ -53,4 +52,3 @@ $(document).ready(function(){
     }
   })
 })
-</script>
